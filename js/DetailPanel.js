@@ -1,4 +1,4 @@
-import { treeSections } from "./TreeData.js";
+import { treeSections, branches } from "./TreeData.js";
 
 export class DetailPanel {
   constructor() {
@@ -16,8 +16,17 @@ export class DetailPanel {
 
   show(sectionId) {
     const data = treeSections[sectionId] || treeSections.trunk;
-    this.kicker.textContent = "Selected Growth Zone";
+    this.kicker.textContent = "Selected Tree Part";
     this.evidenceHeading.textContent = "Evidence / Artifacts";
+    this.render(data);
+  }
+
+  showBranch(branchId) {
+    const data = branches.find((branch) => branch.id === branchId);
+    if (!data) return this.show("trunk");
+
+    this.kicker.textContent = "Selected Branch";
+    this.evidenceHeading.textContent = "Evidence / Leaf Clusters";
     this.render(data);
   }
 
@@ -28,17 +37,17 @@ export class DetailPanel {
       title: cluster.title || cluster.label,
       body: cluster.body || "This cluster represents one set of books, quotes, reflections, or artifacts attached to a branch of my reading personality.",
       evidence: cluster.evidence || [cluster.label],
-      question: cluster.significance || cluster.question || "This cluster connects a specific reading experience to the larger tree."
+      significance: cluster.significance || "This cluster connects a specific reading experience to the larger tree."
     });
   }
 
   render(data) {
     this.title.textContent = data.title;
     this.body.textContent = data.body;
-    this.significance.textContent = data.question;
+    this.significance.textContent = data.significance || data.question || "";
     this.evidence.innerHTML = "";
 
-    data.evidence.forEach((item) => {
+    (data.evidence || []).forEach((item) => {
       const li = document.createElement("li");
       li.textContent = item;
       this.evidence.appendChild(li);

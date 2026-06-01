@@ -12,7 +12,7 @@ export const treeSections = {
         type: "Reflection",
         text: "In the future, I want reading to remain an intellectual exercise that helps me understand people through the information they consume.",
         significance:
-          "This shows that my reading life is still developing rather than ending with this course."
+          "I want my reading life to keep developing instead of ending with this course. \"Why limit yourself to just one dogma?\" - Oppenheimer (in the movie, I have no clue if he said that in real life)."
       }
     ]
   },
@@ -30,7 +30,7 @@ export const treeSections = {
         type: "Reflection",
         text: "My proposal explains that reading this year became less about fulfilling logs and more about figuring out why I read.",
         significance:
-          "This is the central axis of the project: reading is not just completion, but a way of forming thought."
+          "This is the central axis of the project: reading became more than just filling out a log. It was to understand everything around me a little bit better."
       }
     ]
   },
@@ -48,7 +48,7 @@ export const treeSections = {
         type: "Reflection",
         text: "People are products of the information they consume, and a lot of that information comes from books.",
         significance:
-          "This idea is the deepest root of the project because it explains why reading matters beyond school."
+          "This idea is the deepest root of the project because it explains why reading matters beyond school and most importantly, why I read."
       }
     ]
   },
@@ -231,15 +231,15 @@ export const leafClusters = {
         type: "Forced reading",
         text: "Six of Crows began as forced reading. I recognized it in the school library and ended up liking it more than I expected.",
         significance:
-          "This matters because it shows that school pressure and real interest are not always separate. Sometimes a required book becomes a book I actually care about."
+          "This showed me that school pressure and real interest don't have to be mutually exclusive, but it was the first time a required book became a book I actually cared about."
       },
       {
         id: "forcedReading2",
-        title: "Spoiled Sequel",
+        title: "Six of Crows: Incomplete",
         type: "Reflection",
-        text: "I did not read the next book partly because a classmate spoiled parts of it, which made me less motivated even though I still want to read it.",
+        text: "I did not read the next book partly because ERIC >:( spoiled parts of it, which made me less motivated even though I still want to read it.",
         significance:
-          "This shows that reading motivation is fragile and social. Other people can shape not only what I read, but whether I keep reading."
+          "It showed me that my reading motivation (especially in the beginning of the year) was pretty fragile. Other people significantly affected what I read and if I kept reading it."
       }
     ]
   },

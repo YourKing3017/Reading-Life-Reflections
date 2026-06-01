@@ -1,4 +1,4 @@
-import { leafClusters } from "./TreeData.js";
+import { branches, leafClusters } from "./TreeData.js";
 import { LeafCluster } from "./LeafCluster.js";
 
 export class TreeCanvas {
@@ -9,21 +9,16 @@ export class TreeCanvas {
     this.tooltip = tooltip;
     this.selected = "trunk";
     this.view = "overview";
+    this.activeBranch = null;
+    this.selectedClusterId = null;
     this.clusters = leafClusters.map((cluster) => new LeafCluster(cluster));
 
-    this.zoom = {
-      scale: 1.58,
-      tx: -260,
-      ty: -36
-    };
-
-    this.hotspots = [
-      { id: "apical", label: "Apical meristem", x: 450, y: 78, r: 45 },
-      { id: "branches", label: "Branches / canopy", x: 225, y: 265, r: 88 },
-      { id: "branches", label: "Branches / canopy", x: 676, y: 258, r: 88 },
-      { id: "trunk", label: "Trunk", x: 455, y: 515, r: 92 },
-      { id: "roots", label: "Lateral roots", x: 330, y: 780, r: 82 },
-      { id: "taproot", label: "Taproot", x: 450, y: 810, r: 80 }
+    this.partHotspots = [
+      { id: "apical", label: "Apical meristem", x: 450, y: 86, r: 42 },
+      { id: "trunk", label: "Trunk", x: 452, y: 525, r: 82 },
+      { id: "taproot", label: "Taproot", x: 452, y: 805, r: 76 },
+      { id: "roots", label: "Lateral roots", x: 585, y: 780, r: 86 },
+      { id: "roots", label: "Lateral roots", x: 325, y: 780, r: 86 }
     ];
   }
 
@@ -38,7 +33,9 @@ export class TreeCanvas {
 
   reset() {
     this.view = "overview";
+    this.activeBranch = null;
     this.selected = "trunk";
+    this.selectedClusterId = null;
     this.detailPanel.show("trunk");
     this.draw();
   }
@@ -60,6 +57,21 @@ export class TreeCanvas {
     };
   }
 
+  getActiveBranch() {
+    return branches.find((branch) => branch.id === this.activeBranch) || null;
+  }
+
+  getZoomTransform() {
+    const branch = this.getActiveBranch();
+    if (!branch) return { scale: 1, cx: 450, cy: 450 };
+
+    return {
+      scale: 1.85,
+      cx: branch.zoomCenter[0],
+      cy: branch.zoomCenter[1]
+    };
+  }
+
   eventToPoint(event) {
     const rect = this.canvas.getBoundingClientRect();
     const canonicalX = ((event.clientX - rect.left) / rect.width) * 900;
@@ -68,9 +80,10 @@ export class TreeCanvas {
     let x = canonicalX;
     let y = canonicalY;
 
-    if (this.view === "branches") {
-      x = (canonicalX - this.zoom.tx) / this.zoom.scale;
-      y = (canonicalY - this.zoom.ty) / this.zoom.scale;
+    if (this.view === "branch") {
+      const { scale, cx, cy } = this.getZoomTransform();
+      x = (canonicalX - 450) / scale + cx;
+      y = (canonicalY - 450) / scale + cy;
     }
 
     return {
@@ -86,28 +99,49 @@ export class TreeCanvas {
   handleClick(event) {
     const point = this.eventToPoint(event);
 
-    if (this.view === "branches") {
-      const clickedCluster = this.clusters.find((cluster) => cluster.contains(point.x, point.y));
+    if (this.view === "branch") {
+      const activeClusters = this.clusters.filter((cluster) => cluster.cluster.branch === this.activeBranch);
+      const clickedCluster = activeClusters.find((cluster) => cluster.contains(point.x, point.y));
 
       if (clickedCluster) {
         this.selected = clickedCluster.cluster.id;
+        this.selectedClusterId = clickedCluster.cluster.id;
         this.detailPanel.showCluster(clickedCluster.cluster);
         this.draw();
+        return;
+      }
+
+      const branch = this.getActiveBranch();
+      if (branch && this.isNearBranch(point.x, point.y, branch)) {
+        this.selected = branch.id;
+        this.selectedClusterId = null;
+        this.detailPanel.showBranch(branch.id);
+        this.draw();
+        return;
       }
 
       return;
     }
 
-    const clickedHotspot = this.findHotspot(point.x, point.y);
-    if (!clickedHotspot) return;
-
-    this.selected = clickedHotspot.id;
-    this.detailPanel.show(clickedHotspot.id);
-
-    if (clickedHotspot.id === "branches") {
-      this.view = "branches";
+    const clickedBranch = this.findBranch(point.x, point.y);
+    if (clickedBranch) {
+      this.view = "branch";
+      this.activeBranch = clickedBranch.id;
+      this.selected = clickedBranch.id;
+      this.selectedClusterId = null;
+      this.detailPanel.showBranch(clickedBranch.id);
+      this.draw();
+      return;
     }
 
+    const clickedPart = this.findPart(point.x, point.y);
+    if (!clickedPart) return;
+
+    this.view = "overview";
+    this.activeBranch = null;
+    this.selectedClusterId = null;
+    this.selected = clickedPart.id;
+    this.detailPanel.show(clickedPart.id);
     this.draw();
   }
 
@@ -115,12 +149,19 @@ export class TreeCanvas {
     const point = this.eventToPoint(event);
     let hover = null;
 
-    if (this.view === "branches") {
-      const cluster = this.clusters.find((item) => item.contains(point.x, point.y));
+    if (this.view === "branch") {
+      const activeClusters = this.clusters.filter((cluster) => cluster.cluster.branch === this.activeBranch);
+      const cluster = activeClusters.find((item) => item.contains(point.x, point.y));
       hover = cluster?.cluster?.label || null;
+
+      if (!hover) {
+        const branch = this.getActiveBranch();
+        if (branch && this.isNearBranch(point.x, point.y, branch)) hover = branch.label;
+      }
     } else {
-      const hotspot = this.findHotspot(point.x, point.y);
-      hover = hotspot?.label || null;
+      const branch = this.findBranch(point.x, point.y);
+      const part = this.findPart(point.x, point.y);
+      hover = branch?.label || part?.label || null;
     }
 
     if (hover) {
@@ -137,12 +178,69 @@ export class TreeCanvas {
     this.tooltip.classList.add("hidden");
   }
 
-  findHotspot(x, y) {
-    return this.hotspots.find((spot) => {
+  findPart(x, y) {
+    return this.partHotspots.find((spot) => {
       const dx = x - spot.x;
       const dy = y - spot.y;
       return Math.sqrt(dx * dx + dy * dy) <= spot.r;
     });
+  }
+
+  findBranch(x, y) {
+    return branches.find((branch) => {
+      const labelHit = this.isInsideLabel(x, y, branch);
+      const anchorHit = Math.hypot(x - branch.anchorX, y - branch.anchorY) <= 62;
+      const pathHit = this.isNearBranch(x, y, branch);
+      return labelHit || anchorHit || pathHit;
+    });
+  }
+
+  isInsideLabel(x, y, branch) {
+    const width = this.measureLabelWidth(branch.label) + 28;
+    const height = 38;
+    return x >= branch.labelX - width / 2 &&
+      x <= branch.labelX + width / 2 &&
+      y >= branch.labelY - height / 2 &&
+      y <= branch.labelY + height / 2;
+  }
+
+  isNearBranch(x, y, branch) {
+    const [x1, y1, x2, y2, x3, y3, x4, y4, width] = branch.path;
+    let previous = { x: x1, y: y1 };
+    const threshold = Math.max(34, width * 1.25);
+
+    for (let t = 0.04; t <= 1; t += 0.04) {
+      const current = this.cubicPoint(x1, y1, x2, y2, x3, y3, x4, y4, t);
+      if (this.distanceToSegment(x, y, previous.x, previous.y, current.x, current.y) < threshold) return true;
+      previous = current;
+    }
+
+    return false;
+  }
+
+  cubicPoint(x1, y1, x2, y2, x3, y3, x4, y4, t) {
+    const mt = 1 - t;
+    return {
+      x: mt ** 3 * x1 + 3 * mt ** 2 * t * x2 + 3 * mt * t ** 2 * x3 + t ** 3 * x4,
+      y: mt ** 3 * y1 + 3 * mt ** 2 * t * y2 + 3 * mt * t ** 2 * y3 + t ** 3 * y4
+    };
+  }
+
+  distanceToSegment(px, py, ax, ay, bx, by) {
+    const dx = bx - ax;
+    const dy = by - ay;
+    const lengthSquared = dx * dx + dy * dy;
+    if (lengthSquared === 0) return Math.hypot(px - ax, py - ay);
+
+    let t = ((px - ax) * dx + (py - ay) * dy) / lengthSquared;
+    t = Math.max(0, Math.min(1, t));
+    const cx = ax + t * dx;
+    const cy = ay + t * dy;
+    return Math.hypot(px - cx, py - cy);
+  }
+
+  measureLabelWidth(text) {
+    return Math.max(120, text.length * 9.5);
   }
 
   draw() {
@@ -155,120 +253,135 @@ export class TreeCanvas {
     const { sx, sy } = this.getScale();
     ctx.save();
     ctx.scale(sx, sy);
-
     this.drawBackground(ctx);
 
-    if (this.view === "branches") {
-      ctx.save();
-      ctx.translate(this.zoom.tx, this.zoom.ty);
-      ctx.scale(this.zoom.scale, this.zoom.scale);
-      this.drawTreeBase(ctx);
-      this.clusters.forEach((cluster) => cluster.draw(ctx, this.selected === cluster.cluster.id));
-      ctx.restore();
-      this.drawBranchViewLabel(ctx);
+    if (this.view === "branch") {
+      this.drawBranchZoom(ctx);
     } else {
-      this.drawTreeBase(ctx);
-      this.clusters.forEach((cluster) => cluster.draw(ctx, false, 0.55));
-      this.drawHotspotMarkers(ctx);
-      this.drawOverviewLabel(ctx);
+      this.drawOverview(ctx);
     }
 
     ctx.restore();
   }
 
+  drawOverview(ctx) {
+    this.drawTree({ ctx, dimTree: false, activeBranchId: null });
+    this.drawSoftCanopy(ctx);
+    this.drawPartCallouts(ctx);
+    this.drawBranchCallouts(ctx);
+  }
+
+  drawBranchZoom(ctx) {
+    const branch = this.getActiveBranch();
+    const { scale, cx, cy } = this.getZoomTransform();
+
+    ctx.save();
+    ctx.translate(450, 450);
+    ctx.scale(scale, scale);
+    ctx.translate(-cx, -cy);
+
+    this.drawTree({ ctx, dimTree: true, activeBranchId: branch?.id });
+    this.drawSoftCanopy(ctx, 0.13);
+    this.drawBranchLeafClusters(ctx, branch?.id);
+    if (branch) this.drawBranchCallout(ctx, branch, true);
+
+    ctx.restore();
+
+    if (branch) {
+      this.drawZoomHeader(ctx, branch);
+    }
+  }
+
+  drawTree({ ctx, dimTree = false, activeBranchId = null }) {
+    this.drawRoots(ctx, dimTree);
+    this.drawTrunk(ctx, dimTree);
+    branches.forEach((branch) => this.drawBranch(ctx, branch, activeBranchId === branch.id, dimTree));
+    this.drawApical(ctx, dimTree);
+  }
+
   drawBackground(ctx) {
     const sky = ctx.createLinearGradient(0, 0, 0, 900);
-    sky.addColorStop(0, "rgba(84, 156, 121, 0.20)");
-    sky.addColorStop(0.58, "rgba(19, 45, 31, 0.14)");
-    sky.addColorStop(1, "rgba(86, 50, 24, 0.36)");
+    sky.addColorStop(0, "#f7fbf3");
+    sky.addColorStop(0.72, "#fffdf6");
+    sky.addColorStop(1, "#efe0c6");
     ctx.fillStyle = sky;
     ctx.fillRect(0, 0, 900, 900);
 
-    ctx.fillStyle = "rgba(110, 231, 245, 0.14)";
-    ctx.beginPath();
-    ctx.arc(450, 84, 92, 0, Math.PI * 2);
-    ctx.fill();
-
-    ctx.fillStyle = "rgba(86, 50, 24, 0.72)";
-    ctx.fillRect(0, 800, 900, 100);
+    ctx.fillStyle = "rgba(154, 109, 49, 0.18)";
+    ctx.fillRect(0, 815, 900, 85);
   }
 
-  drawTreeBase(ctx) {
-    this.drawRoots(ctx);
-    this.drawBranches(ctx);
-    this.drawTrunk(ctx);
-    this.drawApical(ctx);
-  }
+  drawTrunk(ctx, dim = false) {
+    const alpha = dim ? 0.25 : 0.98;
+    const gradient = ctx.createLinearGradient(0, 180, 0, 790);
+    gradient.addColorStop(0, "#a36d34");
+    gradient.addColorStop(0.55, "#7a4a26");
+    gradient.addColorStop(1, "#4a2c18");
 
-  drawTrunk(ctx) {
-    const gradient = ctx.createLinearGradient(0, 230, 0, 810);
-    gradient.addColorStop(0, "#9a6331");
-    gradient.addColorStop(0.55, "#6b3f22");
-    gradient.addColorStop(1, "#3b2518");
-
+    ctx.save();
+    ctx.globalAlpha = alpha;
     ctx.strokeStyle = gradient;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.lineWidth = 82;
+    ctx.lineWidth = 70;
     ctx.beginPath();
-    ctx.moveTo(450, 760);
-    ctx.bezierCurveTo(430, 645, 464, 496, 448, 372);
-    ctx.bezierCurveTo(442, 292, 450, 182, 450, 92);
+    ctx.moveTo(450, 770);
+    ctx.bezierCurveTo(425, 640, 450, 520, 438, 400);
+    ctx.bezierCurveTo(430, 300, 444, 190, 450, 88);
     ctx.stroke();
 
-    ctx.strokeStyle = "rgba(255,255,255,0.12)";
+    ctx.strokeStyle = "rgba(255,255,255,0.28)";
     ctx.lineWidth = 5;
     ctx.beginPath();
-    ctx.moveTo(421, 740);
-    ctx.bezierCurveTo(411, 592, 436, 485, 428, 356);
+    ctx.moveTo(422, 744);
+    ctx.bezierCurveTo(410, 610, 427, 498, 418, 365);
     ctx.stroke();
 
     ctx.strokeStyle = "rgba(0,0,0,0.18)";
     ctx.lineWidth = 5;
     ctx.beginPath();
-    ctx.moveTo(480, 724);
-    ctx.bezierCurveTo(508, 592, 474, 463, 488, 324);
+    ctx.moveTo(482, 735);
+    ctx.bezierCurveTo(500, 610, 468, 470, 486, 312);
     ctx.stroke();
+    ctx.restore();
   }
 
-  drawBranches(ctx) {
+  drawBranch(ctx, branch, active = false, dimTree = false) {
+    const [x1, y1, x2, y2, x3, y3, x4, y4, width] = branch.path;
+    const alpha = active ? 1 : dimTree ? 0.18 : 0.92;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.strokeStyle = active ? "#8b5429" : "#7a4a26";
+    ctx.lineWidth = active ? width + 8 : width;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.bezierCurveTo(x2, y2, x3, y3, x4, y4);
+    ctx.stroke();
+
+    ctx.strokeStyle = active ? "rgba(255,255,255,0.36)" : "rgba(255,255,255,0.18)";
+    ctx.lineWidth = Math.max(3, width * 0.12);
+    ctx.beginPath();
+    ctx.moveTo(x1 - 3, y1 - 2);
+    ctx.bezierCurveTo(x2 - 5, y2 - 5, x3 - 5, y3 - 3, x4 - 4, y4 - 2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  drawRoots(ctx, dim = false) {
+    ctx.save();
+    ctx.globalAlpha = dim ? 0.22 : 1;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
-    const branches = [
-      [448, 365, 295, 286, 190, 190, 108, 95, 38],
-      [456, 342, 592, 276, 672, 188, 770, 90, 38],
-      [446, 476, 305, 470, 198, 414, 96, 318, 34],
-      [462, 462, 600, 460, 690, 394, 810, 310, 34],
-      [450, 268, 406, 218, 360, 174, 315, 136, 24],
-      [450, 248, 501, 210, 542, 162, 585, 116, 24]
-    ];
-
-    branches.forEach(([x1, y1, x2, y2, x3, y3, x4, y4, width]) => {
-      ctx.strokeStyle = "#6b3f22";
-      ctx.lineWidth = width;
-      ctx.beginPath();
-      ctx.moveTo(x1, y1);
-      ctx.bezierCurveTo(x2, y2, x3, y3, x4, y4);
-      ctx.stroke();
-
-      ctx.strokeStyle = "rgba(255,255,255,0.08)";
-      ctx.lineWidth = Math.max(3, width * 0.13);
-      ctx.beginPath();
-      ctx.moveTo(x1 - 4, y1 - 2);
-      ctx.bezierCurveTo(x2 - 8, y2 - 8, x3 - 8, y3 - 4, x4 - 4, y4 - 5);
-      ctx.stroke();
-    });
-  }
-
-  drawRoots(ctx) {
-    ctx.lineCap = "round";
     const roots = [
-      [445, 760, 385, 815, 265, 825, 145, 890, 30],
-      [455, 760, 505, 820, 628, 824, 760, 888, 30],
-      [448, 762, 447, 820, 448, 860, 450, 920, 34],
-      [418, 768, 360, 820, 330, 850, 285, 900, 16],
-      [480, 768, 540, 820, 580, 850, 630, 900, 16]
+      [448, 760, 382, 815, 292, 828, 150, 885, 28],
+      [454, 760, 520, 814, 610, 828, 760, 885, 28],
+      [450, 762, 450, 820, 448, 858, 450, 920, 32],
+      [425, 770, 362, 820, 332, 848, 285, 900, 16],
+      [480, 770, 540, 820, 580, 850, 632, 900, 16]
     ];
 
     roots.forEach(([x1, y1, x2, y2, x3, y3, x4, y4, width]) => {
@@ -279,53 +392,121 @@ export class TreeCanvas {
       ctx.bezierCurveTo(x2, y2, x3, y3, x4, y4);
       ctx.stroke();
     });
+    ctx.restore();
   }
 
-  drawApical(ctx) {
-    ctx.fillStyle = "#6ee7f5";
+  drawApical(ctx, dim = false) {
+    ctx.save();
+    ctx.globalAlpha = dim ? 0.3 : 1;
+    ctx.fillStyle = "#ffffff";
+    ctx.strokeStyle = "#006eff";
+    ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.arc(450, 78, 18, 0, Math.PI * 2);
+    ctx.arc(450, 86, 15, 0, Math.PI * 2);
     ctx.fill();
-
-    ctx.strokeStyle = "rgba(110,231,245,0.52)";
-    ctx.lineWidth = 8;
-    ctx.beginPath();
-    ctx.arc(450, 78, 32, 0, Math.PI * 2);
     ctx.stroke();
+    ctx.restore();
   }
 
-  drawHotspotMarkers(ctx) {
-    this.hotspots.forEach((spot) => {
-      const active = this.selected === spot.id;
-      ctx.save();
-      ctx.globalAlpha = active ? 0.94 : 0.45;
-      ctx.strokeStyle = active ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.35)";
-      ctx.lineWidth = active ? 3 : 1.5;
+  drawSoftCanopy(ctx, alpha = 0.45) {
+    const canopyLeaves = [
+      [185, 145, 42], [230, 118, 40], [285, 130, 44], [340, 100, 42], [395, 138, 45],
+      [460, 116, 44], [520, 135, 43], [575, 108, 42], [640, 146, 44], [706, 128, 39],
+      [165, 215, 44], [238, 225, 44], [310, 210, 45], [382, 230, 48], [450, 220, 46],
+      [520, 218, 45], [590, 228, 45], [662, 218, 43], [744, 226, 41],
+      [215, 315, 44], [285, 318, 43], [356, 308, 44], [522, 312, 44], [594, 320, 43], [675, 315, 41],
+      [222, 430, 43], [310, 438, 42], [585, 410, 43], [675, 432, 42],
+      [196, 545, 44], [286, 575, 42], [604, 520, 43], [704, 540, 42]
+    ];
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    canopyLeaves.forEach(([x, y, r], index) => {
+      ctx.fillStyle = index % 3 === 0 ? "#7fcf6d" : index % 3 === 1 ? "#99d887" : "#60bd52";
       ctx.beginPath();
-      ctx.arc(spot.x, spot.y, Math.min(spot.r, 39), 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.restore();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.restore();
+  }
+
+  drawBranchLeafClusters(ctx, branchId) {
+    this.clusters.forEach((cluster) => {
+      const activeBranch = cluster.cluster.branch === branchId;
+      cluster.draw(ctx, {
+        selected: this.selectedClusterId === cluster.cluster.id,
+        dimmed: !activeBranch,
+        labels: activeBranch,
+        visible: true
+      });
     });
   }
 
-  drawOverviewLabel(ctx) {
-    this.drawLabel(ctx, "Click the apical meristem, trunk, branches, taproot, or lateral roots.", 450, 34);
+  drawPartCallouts(ctx) {
+    this.drawCallout(ctx, "Apical meristem", 620, 78, 450, 86, "right", this.selected === "apical");
+    this.drawCallout(ctx, "Trunk", 585, 575, 452, 525, "right", this.selected === "trunk");
+    this.drawCallout(ctx, "Taproot", 185, 760, 452, 805, "left", this.selected === "taproot");
+    this.drawCallout(ctx, "Lateral roots", 715, 760, 585, 780, "right", this.selected === "roots");
   }
 
-  drawBranchViewLabel(ctx) {
-    this.drawLabel(ctx, "Branch view: click a leaf cluster, or use Whole tree to zoom out.", 450, 34);
+  drawBranchCallouts(ctx) {
+    branches.forEach((branch) => this.drawBranchCallout(ctx, branch, this.selected === branch.id));
   }
 
-  drawLabel(ctx, text, x, y) {
+  drawBranchCallout(ctx, branch, active = false) {
+    this.drawCallout(ctx, branch.label, branch.labelX, branch.labelY, branch.anchorX, branch.anchorY, branch.labelX < branch.anchorX ? "left" : "right", active);
+  }
+
+  drawCallout(ctx, text, labelX, labelY, anchorX, anchorY, side = "left", active = false) {
     ctx.save();
-    ctx.fillStyle = "rgba(7,17,12,0.76)";
-    this.roundRect(ctx, x - 255, y - 18, 510, 36, 18);
+    const blue = active ? "#004dd6" : "#006eff";
+    ctx.strokeStyle = blue;
+    ctx.lineWidth = active ? 5 : 4;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+
+    const textWidth = this.measureLabelWidth(text);
+    const lineEnd = side === "left" ? labelX + textWidth / 2 + 18 : labelX - textWidth / 2 - 18;
+    const textLineStart = side === "left" ? labelX - textWidth / 2 - 10 : labelX + textWidth / 2 + 10;
+
+    ctx.beginPath();
+    ctx.moveTo(textLineStart, labelY + 18);
+    ctx.lineTo(lineEnd, labelY + 18);
+    ctx.lineTo(anchorX, anchorY);
+    ctx.stroke();
+
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(anchorX, anchorY, 13, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = "#f4f1e8";
-    ctx.font = "700 15px Inter, sans-serif";
+    ctx.strokeStyle = blue;
+    ctx.lineWidth = active ? 5 : 4;
+    ctx.stroke();
+
+    ctx.fillStyle = active ? "#003c9e" : "#050505";
+    ctx.font = active ? "800 24px Inter, system-ui, sans-serif" : "700 23px Inter, system-ui, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(text, x, y);
+    ctx.fillText(text, labelX, labelY);
+    ctx.restore();
+  }
+
+  drawZoomHeader(ctx, branch) {
+    ctx.save();
+    ctx.fillStyle = "rgba(255,255,255,0.92)";
+    ctx.strokeStyle = "rgba(0,110,255,0.28)";
+    ctx.lineWidth = 2;
+    this.roundRect(ctx, 38, 30, 824, 66, 22);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#1f2a1f";
+    ctx.font = "800 24px Inter, system-ui, sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.fillText(`${branch.label}: highlighted evidence clusters`, 62, 62);
+    ctx.fillStyle = "#5d665b";
+    ctx.font = "600 14px Inter, system-ui, sans-serif";
+    ctx.fillText("Click a leaf cluster to show its books, artifacts, and significance. Use Whole tree to zoom out.", 62, 84);
     ctx.restore();
   }
 

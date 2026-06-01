@@ -1,9 +1,3 @@
-/* =============================================================================
-   Reading Tree — styles
-   Plain CSS only. No frameworks, no build step.
-   Visual theme lives in the :root variables below.
-   ============================================================================= */
-
 :root {
   --bg-sky-top: #eaf3fb;
   --bg-sky-bottom: #dcecda;

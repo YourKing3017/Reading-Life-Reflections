@@ -1,16 +1,10 @@
 :root {
   --bg: #07110c;
-  --bg-soft: #0f1f16;
   --card: rgba(255, 255, 255, 0.08);
   --card-strong: rgba(255, 255, 255, 0.13);
   --text: #f4f1e8;
   --muted: #c8c0ae;
   --green: #67d391;
-  --green-dark: #1f7a43;
-  --brown: #7b4b28;
-  --amber: #d6a354;
-  --cyan: #6ee7f5;
-  --red: #e07861;
   --border: rgba(255, 255, 255, 0.14);
   --shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
 }
@@ -31,10 +25,7 @@ body {
 }
 
 .hero,
-.layout,
-.branches-section,
-.anatomy-section,
-.footer {
+.layout {
   width: min(1180px, calc(100% - 32px));
   margin-inline: auto;
 }
@@ -71,7 +62,7 @@ h1 {
 }
 
 .subtitle {
-  max-width: 800px;
+  max-width: 870px;
   margin-bottom: 0;
   color: var(--muted);
   font-size: 1rem;
@@ -87,6 +78,7 @@ h1 {
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: transform 160ms ease, background 160ms ease;
+  white-space: nowrap;
 }
 
 .small-button:hover {
@@ -99,13 +91,11 @@ h1 {
   grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.75fr);
   gap: 22px;
   align-items: stretch;
+  padding-bottom: 32px;
 }
 
 .tree-card,
-.info-card,
-.branches-section,
-.anatomy-section,
-.footer {
+.info-card {
   border: 1px solid var(--border);
   border-radius: 32px;
   background: linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045));
@@ -115,7 +105,7 @@ h1 {
 
 .tree-card {
   position: relative;
-  min-height: 660px;
+  min-height: 720px;
   overflow: hidden;
 }
 
@@ -123,7 +113,7 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 660px;
+  min-height: 720px;
   cursor: pointer;
 }
 
@@ -156,9 +146,7 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-.info-card p,
-.section-heading p,
-.footer p {
+.info-card p {
   color: var(--muted);
   line-height: 1.75;
 }
@@ -196,134 +184,7 @@ h1 {
 .reflection-box p {
   margin-bottom: 0;
   color: #dffbe8;
-  font-style: italic;
-}
-
-.branches-section,
-.anatomy-section,
-.footer {
-  margin-top: 24px;
-  padding: 26px;
-}
-
-.section-heading {
-  display: grid;
-  gap: 2px;
-  max-width: 830px;
-  margin-bottom: 20px;
-}
-
-.section-heading h2 {
-  margin-bottom: 6px;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  letter-spacing: -0.05em;
-}
-
-.branch-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.branch-card {
-  min-height: 210px;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 18px;
-  background: rgba(0, 0, 0, 0.19);
-  transition: transform 160ms ease, background 160ms ease;
-}
-
-.branch-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.11);
-}
-
-.branch-card h3 {
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
-.branch-card p,
-.branch-card li {
-  color: var(--muted);
-  font-size: 0.93rem;
-  line-height: 1.6;
-}
-
-.branch-card ul {
-  padding-left: 18px;
-}
-
-.leaf-anatomy-grid {
-  display: grid;
-  grid-template-columns: 0.7fr 1.3fr;
-  gap: 22px;
-  align-items: center;
-}
-
-.leaf-diagram {
-  display: grid;
-  min-height: 360px;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.leaf-shape {
-  position: relative;
-  width: min(290px, 70vw);
-  aspect-ratio: 1.55 / 1;
-  border-radius: 100% 0 100% 0;
-  background:
-    radial-gradient(circle at 34% 38%, rgba(255,255,255,0.28), transparent 14%),
-    linear-gradient(135deg, #b9f76d, #1f7a43 70%);
-  transform: rotate(-42deg);
-  box-shadow: inset -24px -16px 50px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0,0,0,0.3);
-}
-
-.leaf-vein {
-  position: absolute;
-  left: 50%;
-  top: 8%;
-  width: 5px;
-  height: 112%;
-  border-radius: 999px;
-  background: rgba(8, 60, 32, 0.62);
-  transform: rotate(45deg);
-  transform-origin: top center;
-}
-
-.anatomy-list {
-  display: grid;
-  gap: 12px;
-}
-
-.anatomy-item {
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.17);
-}
-
-.anatomy-item h3 {
-  margin-bottom: 6px;
-}
-
-.anatomy-item p {
-  margin-bottom: 0;
-  color: var(--muted);
-  line-height: 1.62;
-}
-
-.footer {
-  margin-bottom: 32px;
-}
-
-.footer p {
-  margin-bottom: 0;
-  font-size: 1rem;
+  font-style: normal;
 }
 
 @media (max-width: 920px) {
@@ -339,32 +200,21 @@ h1 {
   .small-button {
     margin-top: 18px;
   }
-
-  .branch-grid,
-  .leaf-anatomy-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
   .hero,
-  .layout,
-  .branches-section,
-  .anatomy-section,
-  .footer {
+  .layout {
     width: min(100% - 18px, 1180px);
   }
 
   .tree-card,
-  .info-card,
-  .branches-section,
-  .anatomy-section,
-  .footer {
+  .info-card {
     border-radius: 22px;
   }
 
   .tree-card,
   #treeCanvas {
-    min-height: 540px;
+    min-height: 560px;
   }
 }

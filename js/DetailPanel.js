@@ -1,10 +1,3 @@
-/* =============================================================================
-   DetailPanel.js — renders the right-hand side panel.
-
-   It only reads from the data objects passed in from main.js (which come from
-   js/data.js). You should not need to edit this file to change content.
-   ============================================================================= */
-
 export class DetailPanel {
   constructor(root, { treeSections, branches, leafClusters }, callbacks = {}) {
     this.root = root;

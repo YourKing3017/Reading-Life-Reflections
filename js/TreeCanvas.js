@@ -8,22 +8,22 @@ export class TreeCanvas {
     this.detailPanel = detailPanel;
     this.tooltip = tooltip;
     this.selected = "trunk";
-    this.hovered = null;
+    this.view = "overview";
     this.clusters = leafClusters.map((cluster) => new LeafCluster(cluster));
 
+    this.zoom = {
+      scale: 1.58,
+      tx: -260,
+      ty: -36
+    };
+
     this.hotspots = [
-      { id: "apical", label: "Apical meristem", x: 450, y: 78, r: 42 },
-      { id: "branches", label: "Branches", x: 225, y: 265, r: 74 },
-      { id: "branches", label: "Branches", x: 676, y: 258, r: 74 },
-      { id: "leaves", label: "Leaves", x: 238, y: 190, r: 90 },
-      { id: "leaves", label: "Leaves", x: 612, y: 186, r: 90 },
-      { id: "trunk", label: "Trunk", x: 455, y: 515, r: 86 },
-      { id: "bark", label: "Bark", x: 505, y: 480, r: 42 },
-      { id: "cambium", label: "Cambium", x: 394, y: 477, r: 42 },
-      { id: "knots", label: "Knots/scars", x: 420, y: 425, r: 44 },
-      { id: "roots", label: "Lateral roots", x: 330, y: 780, r: 78 },
-      { id: "taproot", label: "Taproot", x: 450, y: 810, r: 76 },
-      { id: "soil", label: "Soil", x: 450, y: 864, r: 90 }
+      { id: "apical", label: "Apical meristem", x: 450, y: 78, r: 45 },
+      { id: "branches", label: "Branches / canopy", x: 225, y: 265, r: 88 },
+      { id: "branches", label: "Branches / canopy", x: 676, y: 258, r: 88 },
+      { id: "trunk", label: "Trunk", x: 455, y: 515, r: 92 },
+      { id: "roots", label: "Lateral roots", x: 330, y: 780, r: 82 },
+      { id: "taproot", label: "Taproot", x: 450, y: 810, r: 80 }
     ];
   }
 
@@ -37,6 +37,7 @@ export class TreeCanvas {
   }
 
   reset() {
+    this.view = "overview";
     this.selected = "trunk";
     this.detailPanel.show("trunk");
     this.draw();
@@ -59,43 +60,70 @@ export class TreeCanvas {
     };
   }
 
-  eventToTreePoint(event) {
+  eventToPoint(event) {
     const rect = this.canvas.getBoundingClientRect();
+    const canonicalX = ((event.clientX - rect.left) / rect.width) * 900;
+    const canonicalY = ((event.clientY - rect.top) / rect.height) * 900;
+
+    let x = canonicalX;
+    let y = canonicalY;
+
+    if (this.view === "branches") {
+      x = (canonicalX - this.zoom.tx) / this.zoom.scale;
+      y = (canonicalY - this.zoom.ty) / this.zoom.scale;
+    }
+
     return {
-      x: ((event.clientX - rect.left) / rect.width) * 900,
-      y: ((event.clientY - rect.top) / rect.height) * 900,
+      x,
+      y,
+      canonicalX,
+      canonicalY,
       screenX: event.clientX - rect.left,
       screenY: event.clientY - rect.top
     };
   }
 
   handleClick(event) {
-    const point = this.eventToTreePoint(event);
-    const clickedCluster = this.clusters.find((cluster) => cluster.contains(point.x, point.y));
+    const point = this.eventToPoint(event);
 
-    if (clickedCluster) {
-      this.selected = clickedCluster.cluster.section;
-      this.detailPanel.show(clickedCluster.cluster.section);
-      this.draw();
+    if (this.view === "branches") {
+      const clickedCluster = this.clusters.find((cluster) => cluster.contains(point.x, point.y));
+
+      if (clickedCluster) {
+        this.selected = clickedCluster.cluster.id;
+        this.detailPanel.showCluster(clickedCluster.cluster);
+        this.draw();
+      }
+
       return;
     }
 
     const clickedHotspot = this.findHotspot(point.x, point.y);
-    if (clickedHotspot) {
-      this.selected = clickedHotspot.id;
-      this.detailPanel.show(clickedHotspot.id);
-      this.draw();
+    if (!clickedHotspot) return;
+
+    this.selected = clickedHotspot.id;
+    this.detailPanel.show(clickedHotspot.id);
+
+    if (clickedHotspot.id === "branches") {
+      this.view = "branches";
     }
+
+    this.draw();
   }
 
   handleMove(event) {
-    const point = this.eventToTreePoint(event);
-    const cluster = this.clusters.find((item) => item.contains(point.x, point.y));
-    const hotspot = cluster ? null : this.findHotspot(point.x, point.y);
-    const hover = cluster?.cluster?.label || hotspot?.label || null;
+    const point = this.eventToPoint(event);
+    let hover = null;
+
+    if (this.view === "branches") {
+      const cluster = this.clusters.find((item) => item.contains(point.x, point.y));
+      hover = cluster?.cluster?.label || null;
+    } else {
+      const hotspot = this.findHotspot(point.x, point.y);
+      hover = hotspot?.label || null;
+    }
 
     if (hover) {
-      this.hovered = hover;
       this.tooltip.textContent = hover;
       this.tooltip.style.left = `${point.screenX}px`;
       this.tooltip.style.top = `${point.screenY}px`;
@@ -106,7 +134,6 @@ export class TreeCanvas {
   }
 
   hideTooltip() {
-    this.hovered = null;
     this.tooltip.classList.add("hidden");
   }
 
@@ -130,9 +157,21 @@ export class TreeCanvas {
     ctx.scale(sx, sy);
 
     this.drawBackground(ctx);
-    this.drawTreeBase(ctx);
-    this.clusters.forEach((cluster) => cluster.draw(ctx, this.selected === cluster.cluster.section));
-    this.drawHotspotMarkers(ctx);
+
+    if (this.view === "branches") {
+      ctx.save();
+      ctx.translate(this.zoom.tx, this.zoom.ty);
+      ctx.scale(this.zoom.scale, this.zoom.scale);
+      this.drawTreeBase(ctx);
+      this.clusters.forEach((cluster) => cluster.draw(ctx, this.selected === cluster.cluster.id));
+      ctx.restore();
+      this.drawBranchViewLabel(ctx);
+    } else {
+      this.drawTreeBase(ctx);
+      this.clusters.forEach((cluster) => cluster.draw(ctx, false, 0.55));
+      this.drawHotspotMarkers(ctx);
+      this.drawOverviewLabel(ctx);
+    }
 
     ctx.restore();
   }
@@ -158,7 +197,6 @@ export class TreeCanvas {
     this.drawRoots(ctx);
     this.drawBranches(ctx);
     this.drawTrunk(ctx);
-    this.drawKnots(ctx);
     this.drawApical(ctx);
   }
 
@@ -243,24 +281,6 @@ export class TreeCanvas {
     });
   }
 
-  drawKnots(ctx) {
-    const knots = [
-      [420, 425, 28],
-      [488, 548, 22],
-      [426, 606, 15]
-    ];
-
-    knots.forEach(([x, y, radius]) => {
-      ctx.fillStyle = "#2a170f";
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = "rgba(214,163,84,0.44)";
-      ctx.lineWidth = 4;
-      ctx.stroke();
-    });
-  }
-
   drawApical(ctx) {
     ctx.fillStyle = "#6ee7f5";
     ctx.beginPath();
@@ -278,13 +298,48 @@ export class TreeCanvas {
     this.hotspots.forEach((spot) => {
       const active = this.selected === spot.id;
       ctx.save();
-      ctx.globalAlpha = active ? 0.92 : 0.38;
-      ctx.strokeStyle = active ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.35)";
-      ctx.lineWidth = active ? 3 : 1;
+      ctx.globalAlpha = active ? 0.94 : 0.45;
+      ctx.strokeStyle = active ? "rgba(255,255,255,0.95)" : "rgba(255,255,255,0.35)";
+      ctx.lineWidth = active ? 3 : 1.5;
       ctx.beginPath();
-      ctx.arc(spot.x, spot.y, Math.min(spot.r, 36), 0, Math.PI * 2);
+      ctx.arc(spot.x, spot.y, Math.min(spot.r, 39), 0, Math.PI * 2);
       ctx.stroke();
       ctx.restore();
     });
+  }
+
+  drawOverviewLabel(ctx) {
+    this.drawLabel(ctx, "Click the apical meristem, trunk, branches, taproot, or lateral roots.", 450, 34);
+  }
+
+  drawBranchViewLabel(ctx) {
+    this.drawLabel(ctx, "Branch view: click a leaf cluster, or use Whole tree to zoom out.", 450, 34);
+  }
+
+  drawLabel(ctx, text, x, y) {
+    ctx.save();
+    ctx.fillStyle = "rgba(7,17,12,0.76)";
+    this.roundRect(ctx, x - 255, y - 18, 510, 36, 18);
+    ctx.fill();
+    ctx.fillStyle = "#f4f1e8";
+    ctx.font = "700 15px Inter, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+
+  roundRect(ctx, x, y, width, height, radius) {
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.lineTo(x + width - radius, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+    ctx.lineTo(x + width, y + height - radius);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    ctx.lineTo(x + radius, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+    ctx.lineTo(x, y + radius);
+    ctx.quadraticCurveTo(x, y, x + radius, y);
+    ctx.closePath();
   }
 }

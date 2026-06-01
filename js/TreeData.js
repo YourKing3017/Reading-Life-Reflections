@@ -1,110 +1,110 @@
 export const treeSections = {
   soil: {
-    title: "Soil: Reading Environment",
-    body: "The soil represents the conditions my reading grew from: English class, required logs, reading goals, school expectations, and the pressure to turn reading into something visible and measurable.",
+    title: "Soil: My Reading Environment",
+    body: "Soil is a mixture of minerals, organic matter, water, and air pockets. Its negatively charged particles hold vital nutrients until roots release them via cation exchange. The air pockets provide the essential oxygen roots need to breathe and generate cellular energy.",
     evidence: [
       "Original reading goals",
       "Weekly reading logs",
       "Independent reading requirements",
       "Quarterly reflections"
     ],
-    question: "How did the class structure shape my reading before I fully understood what I wanted reading to do for me?"
+    question: "The soil represents the conditions my reading grew from: English class, required logs, reading goals, school expectations, and the pressure to turn reading into something visible and measurable."
   },
   roots: {
     title: "Lateral Roots: Smaller Motivations",
-    body: "The smaller roots represent the mixed motivations underneath my reading life: discipline, escape, curiosity, comfort, school obligation, and identity. Some were productive. Some were forced. All of them fed the tree.",
+    body: "Lateral roots are horizontal branches that grow endogenously out from the main root's pericycle layer. This widespread underground network acts as an anchor to prevent the tree from tipping over in the wind. Their extensive branching drastically increases surface area to maximize water absorption and host beneficial soil microbes.",
     evidence: [
       "Books I read because I chose them",
       "Books I read because they were assigned or useful",
       "Times reading felt like escape",
       "Times reading felt like work"
     ],
-    question: "Which motivations were real, and which ones only existed because I had to prove I was reading?"
+    question: "The smaller roots represent the mixed motivations underneath my reading life: discipline, escape, curiosity, comfort, school obligation, and identity. Some were productive. Some were forced. All of them fed the tree."
   },
   taproot: {
     title: "Taproot: Central Motivation",
-    body: "The taproot is the deepest reason I read: to understand people through the information they consume. This year made me more aware that books do not just entertain people. They train patterns of thought, empathy, suspicion, ambition, and identity.",
+    body: "The taproot is the dominant, centrally located main root that grows vertically straight down into the ground. It originates directly from the radicle of the plant embryo during seed germination. This thick primary structure penetrates deep soil layers to anchor the tree firmly and access deep water reserves.",
     evidence: [
       "Looking Forward section of my proposal",
       "Reflection that people are products of the information they consume",
       "Books that made me think about worldview and motivation"
     ],
-    question: "What is the deepest reason I keep returning to reading, even when it feels like work?"
+    question: "The taproot is the deepest reason I read: to understand people through the information they consume. This year made me more aware that books do not just entertain people. They train patterns of thought, empathy, suspicion, ambition, and identity."
   },
   trunk: {
-    title: "Trunk: Reading as Intellectual Exercise",
-    body: "The trunk is the stable part of my reading identity. I read to think. Even when a book is fantasy or familiar, I am usually drawn to intelligence, worldview, power, morality, and how characters interpret the world around them.",
+    title: "Trunk: My Reading Identity",
+    body: "The trunk is the main wood axis of a tree that grows vertically above the ground. It provides structural support to elevate the canopy toward sunlight for photosynthesis. Internally, its vascular tissues transport water upward from the roots and sugars downward from the leaves.",
     evidence: [
       "The Broken Empire series",
       "Reflections about intelligent or darker narrators",
       "Books that made me analyze human behavior rather than just plot"
     ],
-    question: "What part of my reading identity stayed stable, even when my books and habits changed?"
+    question: "The trunk is the stable and unchanging part of my reading identity. I read to think. Even when a book is fantasy or familiar, I like intelligence, worldview, power, morality, and how characters interpret the world around them."
   },
   bark: {
     title: "Bark: The Visible Reading Life",
-    body: "The bark is what reading looked like from the outside: logs, finished pages, assignments, and evidence. It protected the tree, but it was not the entire tree. The visible record did not always capture why reading mattered.",
+    body: "Bark is the outermost protective layer surrounding the wood of a tree trunk. It acts as a physical barrier that shields the tree from physical damage, water loss, pests, and environmental diseases. Internally, the inner bark contains phloem tissue that transports manufactured sugars from the leaves down to the roots.",
     evidence: [
       "Reading logs",
       "Book counts",
       "Visible assignments",
       "Project artifacts"
     ],
-    question: "What did my reading life look like from the outside, and what did that miss?"
+    question: "The bark is what reading looked like from the outside: logs, finished pages, assignments, and evidence. It protected the tree, but it was not the entire tree. The visible record did not always capture why reading mattered."
   },
   cambium: {
-    title: "Cambium: Reflection and Growth Layer",
-    body: "The cambium represents reflection: the place where reading experiences became self-awareness. This is where logs, books, and frustrations turned into actual growth instead of just evidence of completion.",
+    title: "Cambium: The Growth Layer",
+    body: "The cambium is a continuous lateral layer of actively dividing meristematic cells responsible for the tree's secondary growth in thickness. The vascular cambium produces new xylem cells inward to transport water and new phloem cells outward to transport sugars. A separate cork cambium forms further outward to generate the protective outer bark.",
     evidence: [
       "Weekly independent reading reflections",
       "Quarterly reflection",
       "Moments where I noticed patterns in myself"
     ],
-    question: "When did reading stop being only an activity and start becoming evidence about who I am?"
+    question: "The cambium represents my reflection and growth: the place where I internalized reading experiences. Here, logs, books, and frustrations became more than just evidence of completion."
   },
   branches: {
-    title: "Branches: Reading Personality",
-    body: "The branches represent the main directions my reading personality grew: study, individuality, escape, community, and friction. These are not separate trees. They are different extensions of the same central reading identity.",
+    title: "Branches: Parts of My Reading Personality",
+    body: "Branches are woody structural extensions that grow outward from the main tree trunk. They distribute and support the leaves to maximize sunlight capture for photosynthesis. They contain vascular pathways that transport water to the leaves and sugars back to the trunk and roots.",
     evidence: [
       "Reading as study",
       "Reading as individuality",
       "Reading as escape",
       "Reading as community",
-      "Reading as friction"
+      "Reading as dicipline"
     ],
-    question: "What repeated patterns shaped my reading life more than any single book did?"
+    question: "The branches represent the main directions my reading personality grew: study, individuality, escape, community, and dicipline. These are not separate trees. They are different extensions of the same central reading identity (my Trunk)."
   },
   leaves: {
     title: "Leaves: Specific Books and Artifacts",
-    body: "The leaves are the visible evidence of growth. Each cluster represents a book, series, reflection, or artifact. A leaf is not just decoration; it connects a specific reading experience to a larger branch of my reading personality.",
+    body: "Leaves are the primary lateral appendages specialized for photosynthesis and gas exchange. They contain chlorophyll to capture sunlight and convert carbon dioxide and water into sugars. They also feature microscopic pores called stomata that regulate water loss and oxygen release.",
     evidence: [
       "Specific book titles",
       "Quotes from important books",
       "Finished and unfinished books",
       "Quarter 4 reading"
     ],
-    question: "Which books or artifacts best prove the kind of reader I became?"
+    question: "The leaves are the visible evidence of growth. Each cluster represents a book, series, reflection, or artifact. A leaf is not just decoration; it connects a specific reading experience to a larger branch of my reading personality."
   },
   knots: {
-    title: "Knots and Scars: Struggle",
-    body: "The knots show that my reading growth was not smooth. Sometimes logs made reading artificial. Sometimes I avoided books, abandoned them, or returned to familiar books because they were easier to enter.",
+    title: "Knots and Scars: My Struggle",
+    body: "Knots are the heavy bases of old tree branches that become enclosed within the trunk as it grows in diameter. Scars are localized patches of rough or missing bark where the tree was wounded by animals, weather, or human activity. Both features represent areas where the internal cambium layer has altered its growth pattern to seal over a disruption.",
     evidence: [
       "Unfinished books",
       "Inconsistent reading weeks",
       "Books that did not connect",
       "Moments when reading felt performative"
     ],
-    question: "What struggles mattered because they revealed something true about how I read?"
+    question: "The knots show that my reading growth was not smooth. Sometimes logs made reading feel fake. Sometimes I avoided books, abandoned them, or returned to familiar books because they were easier to read."
   },
   apical: {
-    title: "Apical Meristem: Still Becoming",
-    body: "The apical meristem is the active growth point. It represents who I am becoming now, not a finished version of myself. My future reading life is still growing toward sharper interpretation and a better understanding of people.",
+    title: "Apical Meristem: Who I am Still Becoming",
+    body: "The apical meristem is a localized region of actively dividing, undifferentiated cells found at the tips of roots and shoots. It is responsible for the tree's primary growth, which increases the length of the stems and the depth of the roots. This continuous cellular division allows the tree to reach upward toward sunlight and push downward into new soil.",
     evidence: [
       "Future reading goals",
       "Looking Forward section",
       "Unresolved questions about what role reading will play after this course"
     ],
-    question: "What kind of thinker am I still growing into?"
+    question: "The apical meristem represents who I am becoming now: not a finished version of myself. My future reading life is still growing toward sharper interpretation and a better understanding of people."
   }
 };
 

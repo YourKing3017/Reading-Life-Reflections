@@ -4,15 +4,15 @@ export const treeSections = {
     biologicalDefinition:
       "Apical meristems are growth regions at the tips of roots and shoots. They produce primary growth, extending the plant body as roots reach new water and minerals and shoots extend toward light.",
     significance:
-      "The apical meristem represents the part of my reading life that is still actively growing. I am not a finished reader. My future reading is still extending toward new questions, new genres, and a sharper understanding of how people think.",
+      "The apical meristem represents the part of my reading life that is still actively growing. I am not pretending this project is the final, polished version of me as a reader. It is more like the place where the next version starts growing.",
     evidence: [
       {
         id: "apical1",
         title: "Future Reading Direction",
         type: "Reflection",
-        text: "In the future, I want reading to remain an intellectual exercise that helps me understand people through the information they consume.",
+        text: "In the future, I want reading to remain an intellectual exercise instead of just something I do for logs, grades, or assignments.",
         significance:
-          "I want my reading life to keep developing instead of ending with this course. \"Why limit yourself to just one dogma?\" - Oppenheimer (in the movie, I have no clue if he said that in real life)."
+          "I want my reading life to keep developing instead of ending with this course. \"Why limit yourself to just one dogma?\" - Oppenheimer, at least in the movie. I have no clue if he actually said that in real life, but the point still works."
       }
     ]
   },
@@ -22,15 +22,15 @@ export const treeSections = {
     biologicalDefinition:
       "The stem supports the leaves and places them in favorable positions for exposure to light. It also conducts water and minerals upward through xylem and transports substances made in the leaves through phloem.",
     significance:
-      "The trunk represents the stable center of my reading identity: I read to think. Whether I am reading fantasy, school texts, or reflections, my reading usually returns to analysis, worldview, intelligence, morality, and how people interpret the world.",
+      "The trunk represents the stable center of my reading identity: I read to think. Even when I read fantasy, school books, or something I only started because I was forced to, I usually end up analyzing worldview, intelligence, morality, power, and how people interpret the world.",
     evidence: [
       {
         id: "trunk1",
         title: "Reading as Intellectual Exercise",
         type: "Reflection",
-        text: "My proposal explains that reading this year became less about fulfilling logs and more about figuring out why I read.",
+        text: "My proposal explains that reading this year became less about fulfilling logs and more about figuring out why I read in the first place.",
         significance:
-          "This is the central axis of the project: reading became more than just filling out a log. It was to understand everything around me a little bit better."
+          "This is the central axis of the project. Reading became more than just filling out a log. It became a way to understand everything around me a little bit better, including myself, which is annoying but probably useful."
       }
     ]
   },
@@ -38,9 +38,9 @@ export const treeSections = {
   taproot: {
     title: "Taproot",
     biologicalDefinition:
-      "A taproot system forms from a strongly developed primary root and its branches. The primary root develops from the embryo’s radicle and anchors the plant deeply.",
+      "A taproot system forms from a strongly developed primary root and its branches. The primary root develops from the embryo's radicle and anchors the plant deeply.",
     significance:
-      "The taproot represents my deepest motivation for reading: understanding people through the information they consume. This year made me more aware that books do not just entertain people; they shape patterns of thought, empathy, suspicion, ambition, and identity.",
+      "The taproot represents my deepest motivation for reading: understanding people through the information they consume. Books do not just entertain people. They train what people notice, what they ignore, what they admire, and what they think is normal.",
     evidence: [
       {
         id: "taproot1",
@@ -48,7 +48,7 @@ export const treeSections = {
         type: "Reflection",
         text: "People are products of the information they consume, and a lot of that information comes from books.",
         significance:
-          "This idea is the deepest root of the project because it explains why reading matters beyond school and most importantly, why I read."
+          "This is the deepest root of the project because it explains why reading matters beyond school and, more importantly, why I read. I am interested in what information does to people."
       }
     ]
   },
@@ -58,15 +58,15 @@ export const treeSections = {
     biologicalDefinition:
       "Lateral roots arise from inner tissues of roots. Together, roots anchor the plant and absorb water and minerals from the soil.",
     significance:
-      "The lateral roots represent the smaller motivations that fed my reading life: school obligation, curiosity, escape, discipline, comfort, and identity. Some motivations were genuine, and some were forced, but all of them affected how I grew as a reader.",
+      "The lateral roots represent the smaller motivations that fed my reading life: school obligation, curiosity, escape, discipline, comfort, identity, sunk cost, and sometimes just someone else reading something near me.",
     evidence: [
       {
         id: "lateralRoots1",
         title: "Mixed Motivations",
         type: "Reflection",
-        text: "Some books were read because I chose them, while others were read because they were assigned, useful, or part of a goal.",
+        text: "Some books were read because I chose them. Some were assigned. Some were useful. Some were familiar. Some were expensive enough that I felt morally obligated to finish them.",
         significance:
-          "These smaller reasons supported the larger reading identity even when they conflicted with each other."
+          "These smaller reasons supported the larger reading identity even when they conflicted with each other. My reading life was not one clean motivation. It was a mess of real curiosity, pressure, habit, and convenience."
       }
     ]
   }
@@ -76,7 +76,7 @@ export const branches = {
   study: {
     title: "Reading as Study",
     biologicalDefinition:
-      "Branches are part of the shoot system, which includes stems and leaves. Stems raise leaves toward light and connect them to the plant’s vascular system.",
+      "Branches are part of the shoot system, which includes stems and leaves. Stems raise leaves toward light and connect them to the plant's vascular system.",
     significance:
       "This branch represents reading as learning, analysis, and intellectual development. These books shaped how I understand biology, chemistry, physics, medicine, history, psychology, and the world beyond English class.",
     clusters: ["scienceTextbooks", "readingToThink", "medicineNarrative"]
@@ -87,7 +87,7 @@ export const branches = {
     biologicalDefinition:
       "Primary growth extends the plant body, while secondary growth thickens stems and roots over time. Growth is gradual, layered, and repeated.",
     significance:
-      "This branch represents reading as habit, requirement, and effort. Not every book began with genuine interest. Some were assigned, logged, expensive enough that I felt obligated to read them, or interrupted before I could finish.",
+      "This branch represents reading as habit, requirement, and effort. Not every book started because I was spiritually moved by literature. Some were assigned, logged, expensive, spoiled, or interrupted, and that still counts as part of my reading life.",
     clusters: ["forcedReading", "moneyAndMotivation", "unfinishedReading"]
   },
 
@@ -96,7 +96,7 @@ export const branches = {
     biologicalDefinition:
       "Leaves are specialized photosynthetic organs. Stems position leaves so they can capture light, while vascular tissues connect the leaves to the rest of the plant.",
     significance:
-      "This branch represents reading as entering another world. Fantasy and long series gave me distance from ordinary pressure, but escape was not the opposite of thinking. Often, distance made analysis easier.",
+      "This branch represents reading as entering another world. Fantasy and long series gave me distance from ordinary pressure, but escape was not the opposite of thinking. Sometimes getting away from real life made it easier to analyze it.",
     clusters: ["fantasyWorlds", "seriesAndRereads", "optionalReading"]
   },
 
@@ -105,7 +105,7 @@ export const branches = {
     biologicalDefinition:
       "Roots, stems, and leaves are interconnected by a vascular system that transports water and food throughout the plant body.",
     significance:
-      "This branch represents reading as connection: connection to childhood, my brother, classmates, school, shared fandoms, and inherited identity.",
+      "This branch represents reading as connection: connection to childhood, my brother, classmates, school, shared fandoms, and inherited identity. Reading looks private, but it kept turning out to be social.",
     clusters: ["childhoodReading", "booksThroughFamily", "sharedReadingCultures", "identityAndHistory"]
   },
 
@@ -124,7 +124,7 @@ export const leafClusters = {
     title: "Science and Study Textbooks",
     branch: "study",
     significance:
-      "This cluster shows reading as technical training. These books were not mainly emotional reading, but they shaped how I think: mechanistically, biologically, chemically, and structurally.",
+      "This cluster shows reading as technical training. These books were not mainly emotional reading, but they changed how I think. They taught me to look for mechanisms, systems, causes, and structures instead of just accepting surface explanations.",
     leaves: [
       {
         id: "scienceTextbooks1",
@@ -140,13 +140,13 @@ export const leafClusters = {
         type: "Study book",
         text: "Raven Biology of Plants became directly connected to this project because the tree metaphor comes from real plant anatomy and development.",
         significance:
-          "This matters because my project does not use a tree only as decoration. The biology gives structure to the reflection."
+          "This matters because my project does not use a tree only as decoration. The biology gives structure to the reflection, which is a lot better than randomly putting leaves on a poster and calling it symbolism."
       },
       {
         id: "scienceTextbooks3",
         title: "Anatomy and Physiology Texts",
         type: "Study book",
-        text: "Patton & Thibodeau Anatomy and Physiology and Vander’s Human Physiology helped me read the body as a system of connected structures and functions.",
+        text: "Patton & Thibodeau Anatomy and Physiology and Vander's Human Physiology helped me read the body as a system of connected structures and functions.",
         significance:
           "These books connect to my interest in medicine and show reading as preparation for the kind of thinker I want to become."
       },
@@ -156,7 +156,7 @@ export const leafClusters = {
         type: "Study book",
         text: "Brooker Genetics and Alberts Molecular Biology helped me think about biology at the level of genes, cells, and molecular systems.",
         significance:
-          "This shows how reading built the scientific framework I use outside English class."
+          "This shows how reading built the scientific framework I use outside English class. These books were not relaxing, but they were useful, which is sometimes more important."
       },
       {
         id: "scienceTextbooks5",
@@ -181,7 +181,7 @@ export const leafClusters = {
     title: "Reading to Think Better",
     branch: "study",
     significance:
-      "This cluster represents books I read because I wanted to understand reasoning, prediction, psychology, and how people make decisions.",
+      "This cluster represents books I read because I wanted to understand reasoning, prediction, psychology, and how people make decisions. Basically, books that make my brain slightly more dangerous.",
     leaves: [
       {
         id: "readingToThink1",
@@ -189,7 +189,7 @@ export const leafClusters = {
         type: "Book",
         text: "I bought Causal Models on a trip to Brown University because it was written by a professor there and connected to my growing interest in psychology and decision-making.",
         significance:
-          "This book shows reading as intellectual self-construction. Even though part of my motivation was that I did not want a forty-dollar book to go to waste, it became part of my interest in how people reason."
+          "This book shows reading as intellectual self-construction. Part of my motivation was that I did not want a forty-dollar book to go to waste, but it also became part of my interest in how people reason, predict, and make choices."
       }
     ]
   },
@@ -212,9 +212,9 @@ export const leafClusters = {
         id: "medicineNarrative2",
         title: "Narrative Strategy",
         type: "Reflection",
-        text: "After reading Kalanithi’s writing, I kept using some of his narrative strategies in my practice college essays.",
+        text: "After reading Kalanithi's writing, I kept using some of his narrative strategies in my practice college essays.",
         significance:
-          "This matters because the book changed not only what I thought about medicine, but also how I thought about writing."
+          "This matters because the book changed not only what I thought about medicine, but also how I thought about writing. It made me realize that structure can make an experience feel meaningful instead of just sad."
       }
     ]
   },
@@ -223,7 +223,7 @@ export const leafClusters = {
     title: "Forced Reading That Became Real",
     branch: "discipline",
     significance:
-      "This cluster shows that required or pressured reading can still become authentic interest.",
+      "This cluster shows that required or pressured reading can still become authentic interest. Annoyingly, sometimes school is right.",
     leaves: [
       {
         id: "forcedReading1",
@@ -231,7 +231,7 @@ export const leafClusters = {
         type: "Forced reading",
         text: "Six of Crows began as forced reading. I recognized it in the school library and ended up liking it more than I expected.",
         significance:
-          "This showed me that school pressure and real interest don't have to be mutually exclusive, but it was the first time a required book became a book I actually cared about."
+          "This showed me that school pressure and real interest do not have to be mutually exclusive. It was the first time a required book became a book I actually cared about."
       },
       {
         id: "forcedReading2",
@@ -239,7 +239,7 @@ export const leafClusters = {
         type: "Reflection",
         text: "I did not read the next book partly because ERIC >:( spoiled parts of it, which made me less motivated even though I still want to read it.",
         significance:
-          "It showed me that my reading motivation (especially in the beginning of the year) was pretty fragile. Other people significantly affected what I read and if I kept reading it."
+          "It showed me that my reading motivation, especially earlier in the year, was pretty fragile. Other people significantly affected what I read and whether I kept reading it."
       }
     ]
   },
@@ -256,7 +256,7 @@ export const leafClusters = {
         type: "Book",
         text: "Causal Models was a relatively small book that cost around forty dollars, so part of my motivation was that I did not want the money to be wasted.",
         significance:
-          "This is honest evidence of discipline: sometimes I read because of curiosity, and sometimes I read because I already committed resources to the book."
+          "This is honest evidence of discipline. Sometimes I read because of curiosity, and sometimes I read because I already committed resources to the book and refuse to let the sunk cost win."
       }
     ]
   },
@@ -273,7 +273,7 @@ export const leafClusters = {
         type: "Unfinished book",
         text: "The Hidden History of Burma mattered because I am Burmese and did not grow up with a strong knowledge of Burmese history, but difficult circumstances made me drop the book.",
         significance:
-          "This shows that reading growth is not always clean or complete. Sometimes an unfinished book still reveals a gap I want to understand."
+          "This shows that reading growth is not always clean or complete. Sometimes an unfinished book still reveals a gap I want to understand, even if I was not ready to finish it at the time."
       }
     ]
   },
@@ -298,7 +298,7 @@ export const leafClusters = {
         type: "Book",
         text: "Keeper of the Lost Cities connected to childhood, fantasy, and the feeling of returning to a long-running fictional world.",
         significance:
-          "This shows reading as escape because the series created a world that people could keep returning to over time."
+          "This shows reading as escape because the series created a world that people could keep returning to over time, even when the release schedule made it hard to remember what was happening."
       }
     ]
   },
@@ -323,7 +323,7 @@ export const leafClusters = {
         type: "Reflection",
         text: "Shannon Messenger took so long to release the last book that I forgot parts of the plot.",
         significance:
-          "This shows the strange community and memory side of long series: they can become part of your life long enough that waiting itself becomes part of the reading experience."
+          "This shows the strange community and memory side of long series. They can become part of your life long enough that waiting itself becomes part of the reading experience."
       }
     ]
   },
@@ -340,7 +340,7 @@ export const leafClusters = {
         type: "Optional Q4 reading",
         text: "I chose The Count of Monte Cristo because reading was optional in Quarter 4 and my physics teacher told me classics were worth reading.",
         significance:
-          "This matters because it shows what I chose when I had more freedom: a classic about betrayal, revenge, patience, and transformation."
+          "This matters because it shows what I chose when I had more freedom: a classic about betrayal, revenge, patience, and transformation. Apparently classics can be good when they are not being surgically removed from their context by a worksheet."
       }
     ]
   },
@@ -382,7 +382,7 @@ export const leafClusters = {
         type: "Book",
         text: "I read Let the Sky Fall because my brother was reading it.",
         significance:
-          "This matters because the book entered my reading life through family, showing that reading can be social even before discussion."
+          "This matters because the book entered my reading life through family. I did not choose it from some deep literary calling; it was just near me, and that was enough."
       },
       {
         id: "booksThroughFamily2",
@@ -407,7 +407,7 @@ export const leafClusters = {
         type: "Book community",
         text: "I realized there was a real community around Keeper of the Lost Cities because so many people had read it.",
         significance:
-          "This matters because reading was not only private. The series connected to a larger group of readers who shared the same world."
+          "This matters because reading was not only private. The series connected to a larger group of readers who shared the same world, the same wait, and probably the same confusion when the plot got too long to remember."
       },
       {
         id: "sharedReadingCultures2",
@@ -432,7 +432,7 @@ export const leafClusters = {
         type: "Identity-history book",
         text: "I am Burmese, but because the Burmese education system separated students into STEM and humanities tracks, my mother did not learn much history, so neither did I.",
         significance:
-          "This matters because the book represented an attempt to understand a part of my identity that I did not automatically inherit."
+          "This matters because the book represented an attempt to understand a part of my identity that I did not automatically inherit. It also showed me that gaps in knowledge can be inherited just like knowledge can."
       }
     ]
   },
@@ -455,9 +455,9 @@ export const leafClusters = {
         id: "brokenEmpire2",
         title: "King of Thorns",
         type: "Book",
-        text: "King of Thorns continues the series’ focus on memory, ambition, survival, and power.",
+        text: "King of Thorns continues the series' focus on memory, ambition, survival, and power.",
         significance:
-          "This showed that my interest was not just in the plot. I was returning to the narrator’s worldview."
+          "This showed that my interest was not just in the plot. I was returning to the narrator's worldview."
       },
       {
         id: "brokenEmpire3",
@@ -482,7 +482,7 @@ export const leafClusters = {
         type: "Reflection",
         text: "Many books rely on a righteous hero who always chooses the morally clean path, but that kind of character often feels unrealistic to me.",
         significance:
-          "This matters because it reveals one of my strongest reading preferences: I am more interested in characters who feel psychologically possible than characters who are morally perfect."
+          "This matters because it reveals one of my strongest reading preferences: I am more interested in characters who feel psychologically possible than characters who are morally perfect. Biology is more complicated than saying altruism does not exist, but my instinct is still that perfectly selfless heroes usually feel fake."
       },
       {
         id: "darkNarrators2",
@@ -490,7 +490,7 @@ export const leafClusters = {
         type: "Reflection",
         text: "I do not see myself as a perfectly righteous hero either, which may be part of why darker narrators feel more believable to me.",
         significance:
-          "This connects reading to self-understanding because my taste in narrators reflects how I see people and myself."
+          "This connects reading to self-understanding because my taste in narrators reflects how I see people and myself. I am not saying I am a supervillain. I am saying spotless heroes are usually less convincing."
       }
     ]
   },
@@ -505,9 +505,9 @@ export const leafClusters = {
         id: "transformationNarratives1",
         title: "The Count of Monte Cristo",
         type: "Optional Q4 reading",
-        text: "I enjoyed The Count of Monte Cristo partly because Edmond Dantès begins as naive and good but becomes darker after betrayal.",
+        text: "I enjoyed The Count of Monte Cristo partly because Edmond Dantes begins as naive and good but becomes darker after betrayal.",
         significance:
-          "This mattered to me because I connected to the idea of losing some earlier openness and becoming more guarded over time."
+          "This mattered to me because I connected to the idea of losing some earlier openness and becoming more guarded over time. I used to be more extroverted and probably nicer, and I do not think that version of me completely survived."
       }
     ]
   },
@@ -524,7 +524,7 @@ export const leafClusters = {
         type: "Currently reading",
         text: "The Dancing Wu Li Masters was recommended by an Organic Chemistry professor at Northwestern because it makes quantum physics more accessible to the general public.",
         significance:
-          "This matters because it shows my reading moving toward interdisciplinary thinking: physics, chemistry, perspective, and the attempt to understand abstract ideas in a more intuitive way."
+          "This matters because it shows my reading moving toward interdisciplinary thinking: physics, chemistry, perspective, and the attempt to understand abstract ideas in a more intuitive way. Apparently understanding an electron's perspective might help with organic chemistry, which is either profound or mildly insane."
       }
     ]
   }

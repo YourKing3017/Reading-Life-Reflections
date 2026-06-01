@@ -118,3 +118,11 @@ export const branches = {
     clusters: ["individualityChoices", "individualityAbandoned", "individualityQuarter4"]
   }
 };
+
+export const branches = {
+  // study, discipline, escape, community, individuality
+};
+
+export const leafClusters = {
+  // all the clusters and clickable evidence leaves go here
+};

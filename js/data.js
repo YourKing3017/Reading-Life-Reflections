@@ -1,52 +1,18 @@
-/* =============================================================================
-   Reading Tree — CONTENT FILE
-   =============================================================================
-   THIS IS THE ONLY FILE YOU NEED TO EDIT TO CHANGE THE CONTENT OF THE SITE.
-
-   Everything the tree displays comes from the three objects below:
-
-     1. treeSections   -> apical meristem, trunk, taproot, lateral roots
-     2. branches       -> the five main branches and which clusters live on them
-     3. leafClusters   -> the leaf clusters and the individual evidence leaves
-
-   You never have to touch TreeDiagram.js. The diagram lays everything out
-   automatically. Add or remove items here and the website updates itself.
-
-   QUICK GUIDE
-   -----------
-   • Add a NEW EVIDENCE LEAF: add another { ... } object to a cluster's `leaves`
-     array. Give it a unique `id`. That's it.
-   • Add a NEW LEAF CLUSTER: (a) add a new entry to `leafClusters`, then
-     (b) add its key to the `clusters` array of the branch it belongs to.
-   • Change wording: edit `title`, `biologicalDefinition`, `significance`, `text`.
-
-   `type` for a leaf can be anything, e.g.:
-     "Book", "Quote", "Reading log", "Reflection", "Abandoned book",
-     "Quarter 4 reading".
-   ============================================================================= */
-
-
-/* -----------------------------------------------------------------------------
-   1) TREE STRUCTURES (not branches)
-   These four parts are clickable in the whole-tree view and simply update the
-   side panel. Put supporting evidence in `evidence` if you want it listed
-   (leave the array empty to hide the list).
-   --------------------------------------------------------------------------- */
 export const treeSections = {
   apical: {
     title: "Apical Meristem",
     biologicalDefinition:
-      "The apical meristem is the region of actively dividing cells at the very tip of the shoot. It is where new growth originates and where the plant decides its future direction.",
+      "Apical meristems are growth regions at the tips of roots and shoots. They produce primary growth, extending the plant body as roots reach new water and minerals and shoots extend toward light.",
     significance:
-      "This represents the growing edge of the reader's life — the books not yet read, the questions still forming, and the direction this reader is still choosing to grow toward.",
+      "The apical meristem represents the part of my reading life that is still actively growing. I am not a finished reader. My future reading is still extending toward new questions, new genres, and a sharper understanding of how people think.",
     evidence: [
-      // Optional. Each item: { title, type, text, significance }
       {
         id: "apical1",
-        title: "Currently Reading",
-        type: "Quarter 4 reading",
-        text: "Placeholder for the book this reader is in the middle of right now.",
-        significance: "Placeholder explanation of why this in-progress reading shows active growth."
+        title: "Future Reading Direction",
+        type: "Reflection",
+        text: "In the future, I want reading to remain an intellectual exercise that helps me understand people through the information they consume.",
+        significance:
+          "This shows that my reading life is still developing rather than ending with this course."
       }
     ]
   },
@@ -54,25 +20,35 @@ export const treeSections = {
   trunk: {
     title: "Trunk",
     biologicalDefinition:
-      "The trunk is the central supporting axis of the tree. It carries water and nutrients between the roots and the canopy and gives the whole organism its structure.",
+      "The stem supports the leaves and places them in favorable positions for exposure to light. It also conducts water and minerals upward through xylem and transports substances made in the leaves through phloem.",
     significance:
-      "The trunk represents the reader's core identity as a reader — the central self that every branch of their reading life grows out of and connects back to.",
-    evidence: []
+      "The trunk represents the stable center of my reading identity: I read to think. Whether I am reading fantasy, school texts, or reflections, my reading usually returns to analysis, worldview, intelligence, morality, and how people interpret the world.",
+    evidence: [
+      {
+        id: "trunk1",
+        title: "Reading as Intellectual Exercise",
+        type: "Reflection",
+        text: "My proposal explains that reading this year became less about fulfilling logs and more about figuring out why I read.",
+        significance:
+          "This is the central axis of the project: reading is not just completion, but a way of forming thought."
+      }
+    ]
   },
 
   taproot: {
     title: "Taproot",
     biologicalDefinition:
-      "The taproot is the single dominant root that grows straight down, anchoring the tree and reaching deep water sources.",
+      "A taproot system forms from a strongly developed primary root and its branches. The primary root develops from the embryo’s radicle and anchors the plant deeply.",
     significance:
-      "The taproot represents the earliest, deepest reading memory — the first book or first reader who anchored this person's relationship with reading.",
+      "The taproot represents my deepest motivation for reading: understanding people through the information they consume. This year made me more aware that books do not just entertain people; they shape patterns of thought, empathy, suspicion, ambition, and identity.",
     evidence: [
       {
         id: "taproot1",
-        title: "The First Book",
+        title: "Central Motivation",
         type: "Reflection",
-        text: "Placeholder for the earliest book this reader remembers loving.",
-        significance: "Placeholder for why this first reading experience runs deepest."
+        text: "People are products of the information they consume, and a lot of that information comes from books.",
+        significance:
+          "This idea is the deepest root of the project because it explains why reading matters beyond school."
       }
     ]
   },
@@ -80,345 +56,65 @@ export const treeSections = {
   lateralRoots: {
     title: "Lateral Roots",
     biologicalDefinition:
-      "Lateral roots spread outward from the base of the tree, drawing in nutrients from a wide area and stabilizing the tree against wind.",
+      "Lateral roots arise from inner tissues of roots. Together, roots anchor the plant and absorb water and minerals from the soil.",
     significance:
-      "The lateral roots represent the many people and places that fed this reader early on — family, teachers, libraries, and friends who spread reading through their life.",
-    evidence: []
+      "The lateral roots represent the smaller motivations that fed my reading life: school obligation, curiosity, escape, discipline, comfort, and identity. Some motivations were genuine, and some were forced, but all of them affected how I grew as a reader.",
+    evidence: [
+      {
+        id: "lateralRoots1",
+        title: "Mixed Motivations",
+        type: "Reflection",
+        text: "Some books were read because I chose them, while others were read because they were assigned, useful, or part of a goal.",
+        significance:
+          "These smaller reasons supported the larger reading identity even when they conflicted with each other."
+      }
+    ]
   }
 };
 
-
-/* -----------------------------------------------------------------------------
-   2) BRANCHES
-   The five main branches. Each branch lists the cluster keys that grow on it
-   in `clusters`. Add a key here (that also exists in leafClusters below) and a
-   new leaf cluster appears on that branch automatically.
-   --------------------------------------------------------------------------- */
 export const branches = {
   study: {
     title: "Reading as Study",
     biologicalDefinition:
-      "A major branch growing toward strong light — heavily leafed because it does much of the tree's productive work.",
+      "Branches are part of the shoot system, which includes stems and leaves. Stems raise leaves toward light and connect them to the plant’s vascular system.",
     significance:
-      "Reading done to learn, analyze, and understand. This is reading as an academic and intellectual tool.",
+      "This branch represents reading as learning, analysis, and intellectual development. It is the part of my reading life connected to school, annotation, structure, and using texts as tools for thought.",
     clusters: ["studyLogs", "studyAnnotations", "studySchoolTexts"]
   },
 
   discipline: {
     title: "Reading as Discipline",
     biologicalDefinition:
-      "A sturdy lower branch that thickens steadily over many seasons, adding a ring of growth at a time.",
+      "Primary growth extends the plant body, while secondary growth thickens stems and roots over time. Growth is gradual, layered, and repeated.",
     significance:
-      "Reading as a habit and a practice — the steady, sometimes effortful work of returning to the page again and again.",
+      "This branch represents reading as habit and routine. Logs, goals, and weekly expectations gave my reading structure, but they also created tension because reading became something measurable and sometimes performative.",
     clusters: ["disciplineGoals", "disciplineWeeks"]
   },
 
   escape: {
     title: "Reading as Escape",
     biologicalDefinition:
-      "A tall branch reaching up and away from the trunk, its leaves catching light far from the center.",
+      "Leaves are specialized photosynthetic organs. Stems position leaves so they can capture light, while vascular tissues connect the leaves to the rest of the plant.",
     significance:
-      "Reading for immersion, comfort, and pleasure — the books that carry this reader out of their own world and into another.",
+      "This branch represents reading as escape into another world. Fantasy and rereading gave me distance from school, but the escape was not mindless; it still made me analyze power, survival, loyalty, morality, and identity.",
     clusters: ["escapeFiction", "escapeSeries", "escapeComfort"]
   },
 
   community: {
     title: "Reading as Community",
     biologicalDefinition:
-      "A branch whose leaves overlap with those of neighboring trees, sharing light and shelter.",
+      "Roots, stems, and leaves are interconnected by a vascular system that transports water and food throughout the plant body.",
     significance:
-      "Reading shared with others — books passed between friends, discussed, recommended, and read together.",
+      "This branch represents reading as connection: connection to earlier versions of myself, to class discussions, to shared stories, and to the communities that form around certain books.",
     clusters: ["communityBookClub", "communityShared", "communityRecommendations"]
   },
 
   individuality: {
     title: "Reading as Individuality",
     biologicalDefinition:
-      "A branch that grows in its own distinctive direction, unlike any other branch on the tree.",
+      "The shoot apical meristem repeatedly produces leaf primordia and bud primordia; bud primordia develop into lateral shoots.",
     significance:
-      "Reading that belongs to this reader alone — the personal, unexpected, and even abandoned choices that make this reading life unique.",
+      "This branch represents the most personal part of my reading life: the books that reflect my actual taste. I am drawn to sharper, darker, more intelligent narrators and stories that do not simplify people into clean heroes or victims.",
     clusters: ["individualityChoices", "individualityAbandoned", "individualityQuarter4"]
-  }
-};
-
-
-/* -----------------------------------------------------------------------------
-   3) LEAF CLUSTERS + EVIDENCE LEAVES
-   Each cluster belongs to one branch (see `branch`). Each leaf is one piece of
-   evidence. Add or remove leaves freely — the layout adjusts on its own.
-
-   OPTIONAL: a leaf may include custom { x, y } in the range 0..1 to override
-   its automatic position inside the cluster. You almost never need this.
-   --------------------------------------------------------------------------- */
-export const leafClusters = {
-  /* ---- Branch: Reading as Study ---- */
-  studyLogs: {
-    title: "Reading Logs",
-    branch: "study",
-    significance: "Logs show reading as measurable, deliberate work over time.",
-    leaves: [
-      {
-        id: "studyLogs1",
-        title: "Weekly Log — September",
-        type: "Reading log",
-        text: "Placeholder for a week's worth of logged pages and titles.",
-        significance: "Placeholder for why consistent logging reflects study habits."
-      },
-      {
-        id: "studyLogs2",
-        title: "Quarter Reflection",
-        type: "Reflection",
-        text: "Placeholder evidence text reflecting on a quarter of study reading.",
-        significance: "Placeholder explanation of why this evidence matters."
-      }
-    ]
-  },
-
-  studyAnnotations: {
-    title: "Annotations",
-    branch: "study",
-    significance: "Margin notes reveal active, analytical engagement with a text.",
-    leaves: [
-      {
-        id: "studyAnnotations1",
-        title: "Annotated Chapter",
-        type: "Book",
-        text: "Placeholder for a heavily annotated assigned text.",
-        significance: "Placeholder for why close annotation demonstrates study."
-      },
-      {
-        id: "studyAnnotations2",
-        title: "Key Quote",
-        type: "Quote",
-        text: "\"Placeholder for a quotation the reader marked and analyzed.\"",
-        significance: "Placeholder for why this quotation was worth marking."
-      }
-    ]
-  },
-
-  studySchoolTexts: {
-    title: "School Texts",
-    branch: "study",
-    significance: "Assigned texts anchor the reader in a shared academic canon.",
-    leaves: [
-      {
-        id: "studySchoolTexts1",
-        title: "Assigned Novel",
-        type: "Book",
-        text: "Placeholder for a required reading from class.",
-        significance: "Placeholder for why this assigned book shaped the reader."
-      }
-    ]
-  },
-
-  /* ---- Branch: Reading as Discipline ---- */
-  disciplineGoals: {
-    title: "Reading Goals",
-    branch: "discipline",
-    significance: "Goals turn reading into an intentional, tracked practice.",
-    leaves: [
-      {
-        id: "disciplineGoals1",
-        title: "Books-Per-Month Goal",
-        type: "Reflection",
-        text: "Placeholder for a personal reading target and progress.",
-        significance: "Placeholder for why setting goals shows discipline."
-      },
-      {
-        id: "disciplineGoals2",
-        title: "Page Streak",
-        type: "Reading log",
-        text: "Placeholder for a streak of consecutive days reading.",
-        significance: "Placeholder for why consistency matters here."
-      }
-    ]
-  },
-
-  disciplineWeeks: {
-    title: "Steady Weeks",
-    branch: "discipline",
-    significance: "Ordinary weeks of reading add up like growth rings.",
-    leaves: [
-      {
-        id: "disciplineWeeks1",
-        title: "An Unremarkable Week",
-        type: "Reading log",
-        text: "Placeholder for a normal week of reading that still counted.",
-        significance: "Placeholder for why even routine reading builds the trunk."
-      }
-    ]
-  },
-
-  /* ---- Branch: Reading as Escape ---- */
-  escapeFiction: {
-    title: "Worlds to Enter",
-    branch: "escape",
-    significance: "Immersive fiction offers a doorway out of the everyday.",
-    leaves: [
-      {
-        id: "escapeFiction1",
-        title: "A Book I Disappeared Into",
-        type: "Book",
-        text: "Placeholder for a novel that fully absorbed the reader.",
-        significance: "Placeholder for why total immersion mattered."
-      },
-      {
-        id: "escapeFiction2",
-        title: "Late-Night Quote",
-        type: "Quote",
-        text: "\"Placeholder for a line read at 2am that kept the reader turning pages.\"",
-        significance: "Placeholder for why this line captured escape."
-      }
-    ]
-  },
-
-  escapeSeries: {
-    title: "Series & Sagas",
-    branch: "escape",
-    significance: "Long series sustain escape across many books.",
-    leaves: [
-      {
-        id: "escapeSeries1",
-        title: "The Series I Finished",
-        type: "Book",
-        text: "Placeholder for a multi-book series the reader stayed with.",
-        significance: "Placeholder for why committing to a saga reflects escape."
-      }
-    ]
-  },
-
-  escapeComfort: {
-    title: "Comfort Re-Reads",
-    branch: "escape",
-    significance: "Re-reading a familiar book is escape into a safe place.",
-    leaves: [
-      {
-        id: "escapeComfort1",
-        title: "The Book I Re-Read",
-        type: "Book",
-        text: "Placeholder for a comfort read returned to many times.",
-        significance: "Placeholder for why re-reading offers comfort."
-      },
-      {
-        id: "escapeComfort2",
-        title: "Why I Return To It",
-        type: "Reflection",
-        text: "Placeholder reflection on the pull of a comfort book.",
-        significance: "Placeholder for why this re-reading matters."
-      }
-    ]
-  },
-
-  /* ---- Branch: Reading as Community ---- */
-  communityBookClub: {
-    title: "Book Club",
-    branch: "community",
-    significance: "Reading discussed aloud becomes a shared experience.",
-    leaves: [
-      {
-        id: "communityBookClub1",
-        title: "Club Pick",
-        type: "Book",
-        text: "Placeholder for a book read with a club or group.",
-        significance: "Placeholder for why reading together changed the book."
-      }
-    ]
-  },
-
-  communityShared: {
-    title: "Shared Reads",
-    branch: "community",
-    significance: "Books passed between people carry relationships with them.",
-    leaves: [
-      {
-        id: "communityShared1",
-        title: "A Friend's Copy",
-        type: "Book",
-        text: "Placeholder for a book lent by a friend.",
-        significance: "Placeholder for why a borrowed book carries meaning."
-      },
-      {
-        id: "communityShared2",
-        title: "Quote We Both Loved",
-        type: "Quote",
-        text: "\"Placeholder for a passage two readers shared.\"",
-        significance: "Placeholder for why this shared passage mattered."
-      }
-    ]
-  },
-
-  communityRecommendations: {
-    title: "Recommendations",
-    branch: "community",
-    significance: "Recommendations weave readers' lives together.",
-    leaves: [
-      {
-        id: "communityRecommendations1",
-        title: "A Book Someone Pressed On Me",
-        type: "Reflection",
-        text: "Placeholder for a recommendation that stuck.",
-        significance: "Placeholder for why this recommendation mattered."
-      }
-    ]
-  },
-
-  /* ---- Branch: Reading as Individuality ---- */
-  individualityChoices: {
-    title: "My Own Choices",
-    branch: "individuality",
-    significance: "Self-chosen books reveal a reader's distinct taste.",
-    leaves: [
-      {
-        id: "individualityChoices1",
-        title: "A Book No One Recommended",
-        type: "Book",
-        text: "Placeholder for a book the reader found entirely on their own.",
-        significance: "Placeholder for why this independent choice matters."
-      }
-    ]
-  },
-
-  individualityAbandoned: {
-    title: "Books I Left Behind",
-    branch: "individuality",
-    significance: "Choosing to stop reading is its own act of identity.",
-    leaves: [
-      {
-        id: "individualityAbandoned1",
-        title: "The Book I Didn't Finish",
-        type: "Abandoned book",
-        text: "Placeholder for a book the reader chose to set down.",
-        significance: "Placeholder for why abandoning it was the right choice."
-      },
-      {
-        id: "individualityAbandoned2",
-        title: "Why I Stopped",
-        type: "Reflection",
-        text: "Placeholder reflection on deciding to quit a book.",
-        significance: "Placeholder for why this decision reflects individuality."
-      }
-    ]
-  },
-
-  individualityQuarter4: {
-    title: "Quarter 4 Reading",
-    branch: "individuality",
-    significance: "The most recent reading shows where this reader is headed.",
-    leaves: [
-      {
-        id: "individualityQuarter41",
-        title: "Quarter 4 Pick",
-        type: "Quarter 4 reading",
-        text: "Placeholder for a book read in the final quarter.",
-        significance: "Placeholder for why this recent reading points forward."
-      },
-      {
-        id: "individualityQuarter42",
-        title: "Quarter 4 Reflection",
-        type: "Reflection",
-        text: "Placeholder reflection on reading at the end of the year.",
-        significance: "Placeholder for why this closing reflection matters."
-      }
-    ]
   }
 };

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Reading Tree</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Reading Life Reflections</p>
+      <h1>The Reading Tree</h1>
+      <p class="subtitle">
+        A biological map of my reading life: roots for motivation, branches for personality,
+        leaves for books, knots for struggle, and the apical meristem for who I am still becoming.
+      </p>
+    </div>
+    <button id="resetButton" class="small-button">Reset View</button>
+  </header>
+
+  <main class="layout">
+    <section class="tree-card" aria-label="Interactive reading tree">
+      <canvas id="treeCanvas" width="900" height="900"></canvas>
+      <div id="tooltip" class="tooltip hidden"></div>
+    </section>
+
+    <aside class="info-card">
+      <p class="eyebrow">Selected Growth Zone</p>
+      <h2 id="panelTitle">Trunk: Reading as Intellectual Exercise</h2>
+      <p id="panelBody">
+        The trunk represents the stable part of my reading identity. Even when the books changed,
+        I kept reading as a way to think harder, examine people, and understand how information shapes identity.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>Evidence / Leaves</h3>
+      <ul id="panelEvidence" class="evidence-list"></ul>
+
+      <div class="reflection-box">
+        <h3>Reflection Question</h3>
+        <p id="panelQuestion">What part of my reading identity stayed stable throughout the year?</p>
+      </div>
+    </aside>
+  </main>
+
+  <section class="branches-section">
+    <div class="section-heading">
+      <p class="eyebrow">Branch System</p>
+      <h2>Branches of My Reading Personality</h2>
+      <p>
+        Each branch represents a recurring pattern or tension. The leaf clusters are specific books,
+        reflections, goals, or artifacts that grew from that part of my reading life.
+      </p>
+    </div>
+
+    <div id="branchCards" class="branch-grid"></div>
+  </section>
+
+  <section class="anatomy-section">
+    <div class="section-heading">
+      <p class="eyebrow">Leaf Anatomy</p>
+      <h2>Close Reading One Book</h2>
+      <p>
+        This section lets one enlarged leaf represent one major reading experience. Use it for the book
+        that best shows how a surface-level plot turned into deeper self-understanding.
+      </p>
+    </div>
+
+    <div class="leaf-anatomy-grid">
+      <div class="leaf-diagram" aria-label="Leaf anatomy diagram">
+        <div class="leaf-shape">
+          <span class="leaf-vein"></span>
+        </div>
+      </div>
+      <div id="leafAnatomyList" class="anatomy-list"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>
+      Central thesis: This year, my reading life became less about proving that I read and more about
+      understanding why I read. The books, logs, reflections, rereads, and abandoned texts became evidence
+      that people are shaped by the information they consume.
+    </p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

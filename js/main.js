@@ -1,10 +1,3 @@
-/* =============================================================================
-   main.js — wires the data, the tree diagram and the side panel together,
-   and manages the three navigation levels + the control buttons.
-
-   To change CONTENT, edit js/data.js (not this file).
-   ============================================================================= */
-
 import { treeSections, branches, leafClusters } from "./data.js";
 import { TreeDiagram } from "./TreeDiagram.js";
 import { DetailPanel } from "./DetailPanel.js";

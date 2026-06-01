@@ -1,14 +1,3 @@
-/* =============================================================================
-   TreeDiagram.js — draws the realistic SVG tree and handles the three zoom
-   levels (whole tree -> branch -> leaf cluster).
-
-   YOU SHOULD NOT NEED TO EDIT THIS FILE TO CHANGE CONTENT.
-   All titles, definitions, clusters and evidence come from js/data.js.
-
-   If you want to move a branch or change the look of the tree, the geometry
-   knobs are in the CONFIG block just below.
-   ============================================================================= */
-
 const SVGNS = "http://www.w3.org/2000/svg";
 
 /* ----------------------------- CONFIG (geometry) ---------------------------- */

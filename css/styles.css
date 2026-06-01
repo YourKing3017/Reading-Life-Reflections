@@ -1,5 +1,5 @@
 /* =============================================================================
-   Reading Tree â€” styles
+   Reading Tree — styles
    Plain CSS only. No frameworks, no build step.
    Visual theme lives in the :root variables below.
    ============================================================================= */
@@ -143,7 +143,7 @@ body {
 .leaf-shape { stroke: #2c5a22; stroke-width: 0.6; }
 .leaf-rib { stroke: #2c5a22; stroke-width: 0.7; opacity: 0.55; }
 
-/* cluster glow ring â€” hidden until its branch is opened */
+/* cluster glow ring — hidden until its branch is opened */
 .cluster-glow {
   fill: none;
   stroke: #a9e878;
@@ -194,7 +194,7 @@ body {
 .tree.level-3 .cluster.active .cluster-glow { opacity: 0; }
 
 /* ------------------------------- labels ----------------------------------- */
-/* Labels must never intercept clicks â€” their target dots sit on top of the
+/* Labels must never intercept clicks — their target dots sit on top of the
    clickable structures, so without this the dots would swallow the click. */
 #labels { transition: opacity 0.3s ease; pointer-events: none; }
 .label-line { stroke: var(--label-blue); fill: none; }

@@ -27,7 +27,7 @@ export class LeafCluster {
     return leaves;
   }
 
-  draw(ctx, selected) {
+  draw(ctx, selected, opacity = 0.92) {
     this.leaves.forEach((leaf) => {
       ctx.save();
       ctx.translate(leaf.x, leaf.y);
@@ -35,33 +35,34 @@ export class LeafCluster {
       ctx.beginPath();
       ctx.ellipse(0, 0, leaf.rx, leaf.ry, 0, 0, Math.PI * 2);
       ctx.fillStyle = leaf.color;
-      ctx.globalAlpha = selected ? 1 : 0.88;
+      ctx.globalAlpha = selected ? 1 : opacity;
       ctx.fill();
-      ctx.strokeStyle = selected ? "rgba(255,255,255,0.85)" : "rgba(7,17,12,0.28)";
-      ctx.lineWidth = selected ? 2 : 1;
+      ctx.strokeStyle = selected ? "rgba(255,255,255,0.9)" : "rgba(7,17,12,0.28)";
+      ctx.lineWidth = selected ? 2.5 : 1;
       ctx.stroke();
       ctx.restore();
     });
 
     ctx.save();
-    ctx.fillStyle = "rgba(7,17,12,0.72)";
-    ctx.strokeStyle = "rgba(255,255,255,0.22)";
+    ctx.globalAlpha = selected ? 1 : Math.max(0.72, opacity);
+    ctx.fillStyle = selected ? "rgba(255,255,255,0.92)" : "rgba(7,17,12,0.78)";
+    ctx.strokeStyle = "rgba(255,255,255,0.24)";
     ctx.lineWidth = 1;
-    this.roundRect(ctx, this.cluster.x - 52, this.cluster.y + 45, 104, 28, 14);
+    this.roundRect(ctx, this.cluster.x - 58, this.cluster.y + 48, 116, 30, 15);
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = "#f4f1e8";
-    ctx.font = "700 13px Inter, sans-serif";
+    ctx.fillStyle = selected ? "#07110c" : "#f4f1e8";
+    ctx.font = "800 13px Inter, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(this.cluster.label, this.cluster.x, this.cluster.y + 59);
+    ctx.fillText(this.cluster.label, this.cluster.x, this.cluster.y + 63);
     ctx.restore();
   }
 
   contains(x, y) {
     const dx = x - this.cluster.x;
     const dy = y - this.cluster.y;
-    return Math.sqrt(dx * dx + dy * dy) < 82;
+    return Math.sqrt(dx * dx + dy * dy) < 86;
   }
 
   roundRect(ctx, x, y, width, height, radius) {

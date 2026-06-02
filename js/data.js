@@ -1,5 +1,3 @@
-
-Claude finished the response
 export const treeSections = {
   apical: {
     title: "Apical Meristem",

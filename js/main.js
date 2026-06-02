@@ -1,4 +1,4 @@
-import { treeSections, branches, leafClusters } from "./data.js";
+import { treeSections, branches, leafClusters } from "./data.js?v=17";
 import { TreeDiagram } from "./TreeDiagram.js";
 import { DetailPanel } from "./DetailPanel.js";
 

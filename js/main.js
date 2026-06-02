@@ -1,6 +1,6 @@
-import { treeSections, branches, leafClusters } from "./data.js?v=26";
-import { TreeDiagram } from "./TreeDiagram.js?v=26";
-import { DetailPanel } from "./DetailPanel.js?v=26";
+import { treeSections, branches, leafClusters } from "./data.js?v=27";
+import { TreeDiagram } from "./TreeDiagram.js?v=27";
+import { DetailPanel } from "./DetailPanel.js?v=27";
 
 const data = { treeSections, branches, leafClusters };
 

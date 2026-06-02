@@ -67,6 +67,17 @@ const GREENS = [
   "#3f7d2e", "#4f9a37", "#5aa845", "#356e29",
   "#67b352", "#2f6b25", "#73bd5e", "#458a33"
 ];
+const QUARTER_COLORS = {
+  q1: "#c96f2d",    // orange: baseline and first habits
+  q2: "#b13f2f",    // red-brown: difficulty and nonfiction friction
+  q3: "#d8a634",    // gold: context and layered reading
+  q4: "#4f9d5d",    // green: current growth
+  multi: "#8a6fb3"  // purple: whole-year ideas
+};
+
+function leafColor(leaf, fallbackIndex = 0) {
+  return QUARTER_COLORS[leaf.quarter] || GREENS[fallbackIndex % GREENS.length];
+}
 
 // Build a namespaced SVG element with attributes (and optional children).
 function el(name, attrs = {}, children = []) {
@@ -436,15 +447,17 @@ export class TreeDiagram {
       const ll = 26 * sizeVar, lw = 13 * sizeVar;
       this.geo.leaves[leaf.id] = { x: lx, y: ly, ang, branch: branchId, cluster: clusterId };
 
+      const q = leaf.quarter || "unknown";
       const lg = el("g", {
-        class: "leaf clickable",
+        class: `leaf clickable quarter-${q}`,
         "data-leaf": leaf.id,
+        "data-quarter": q,
         transform: `translate(${fmt(lx)} ${fmt(ly)}) rotate(${fmt((ang * 180) / Math.PI)})`
       });
       lg.appendChild(el("path", {
         class: "leaf-shape",
         d: `M ${fmt(-ll / 2)} 0 Q 0 ${fmt(-lw / 2)} ${fmt(ll / 2)} 0 Q 0 ${fmt(lw / 2)} ${fmt(-ll / 2)} 0 Z`,
-        fill: GREENS[i % GREENS.length],
+        fill: leafColor(leaf, i),
         opacity: fmt(0.9 + lr() * 0.1)
       }));
       lg.appendChild(el("line", {

@@ -3,8 +3,8 @@ export const treeSections = {
     title: "Apical Meristem",
     biologicalDefinition:
       "Apical meristems are growth regions at the tips of roots and shoots. They produce primary growth, extending the plant body as roots reach new water and minerals and shoots extend toward light.",
-    significance:
-      "The apical meristem is the part of my reading life that's still growing, which is a more honest ending than pretending I had some clean final transformation. I did not evolve from "bad reader" to "Shakespeare enjoyer" in one school year. It's more like this is the spot where the next weird branch starts.",
+        significance:
+      "The apical meristem is the part of my reading life that's still growing, which is a more honest ending than pretending I had some clean final transformation. I did not evolve from 'bad reader' to 'Shakespeare enjoyer' in one school year. It's more like this is the spot where the next weird branch starts.",
     evidence: [
       {
         id: "apicalFutureDirection",

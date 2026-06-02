@@ -79,6 +79,22 @@ function leafColor(leaf, fallbackIndex = 0) {
   return QUARTER_COLORS[leaf.quarter] || GREENS[fallbackIndex % GREENS.length];
 }
 
+function clusterQuarter(def) {
+  const counts = {};
+  (def.leaves || []).forEach((leaf) => {
+    const q = leaf.quarter || "unknown";
+    counts[q] = (counts[q] || 0) + 1;
+  });
+
+  return Object.entries(counts)
+    .sort((a, b) => b[1] - a[1])[0]?.[0] || "unknown";
+}
+
+function clusterColor(def, fallbackIndex = 0) {
+  const q = clusterQuarter(def);
+  return QUARTER_COLORS[q] || GREENS[fallbackIndex % GREENS.length];
+}
+
 // Build a namespaced SVG element with attributes (and optional children).
 function el(name, attrs = {}, children = []) {
   const n = document.createElementNS(SVGNS, name);
@@ -336,7 +352,7 @@ export class TreeDiagram {
           cy: fmt(a.y + Math.sin(ang) * r),
           rx: fmt(rx),
           ry: fmt(rx * (0.78 + rnd() * 0.3)),
-          fill: GREENS[Math.floor(rnd() * GREENS.length)],
+          fill: clusterColor(def, i),
           opacity: fmt(0.32 + rnd() * 0.22)
         }));
       }
@@ -410,7 +426,7 @@ export class TreeDiagram {
         cy: fmt(center.y + Math.sin(ang) * r),
         rx: fmt(rx),
         ry: fmt(rx * (0.8 + rnd() * 0.25)),
-        fill: GREENS[Math.floor(rnd() * GREENS.length)],
+        fill: clusterColor(def, i),
         opacity: fmt(0.78 + rnd() * 0.2)
       }));
     }

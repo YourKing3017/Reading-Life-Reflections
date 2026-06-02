@@ -352,7 +352,7 @@ export class TreeDiagram {
           cy: fmt(a.y + Math.sin(ang) * r),
           rx: fmt(rx),
           ry: fmt(rx * (0.78 + rnd() * 0.3)),
-          fill: clusterColor(def, i),
+          fill: GREENS[Math.floor(rnd() * GREENS.length)],
           opacity: fmt(0.32 + rnd() * 0.22)
         }));
       }
@@ -426,7 +426,7 @@ export class TreeDiagram {
         cy: fmt(center.y + Math.sin(ang) * r),
         rx: fmt(rx),
         ry: fmt(rx * (0.8 + rnd() * 0.25)),
-        fill: clusterColor(def, i),
+        fill: GREENS[Math.floor(rnd() * GREENS.length)],
         opacity: fmt(0.78 + rnd() * 0.2)
       }));
     }

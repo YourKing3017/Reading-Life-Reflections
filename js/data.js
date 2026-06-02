@@ -1,531 +1,352 @@
-export const treeSections = {
-  apical: {
-    title: "Apical Meristem",
-    biologicalDefinition:
-      "Apical meristems are growth regions at the tips of roots and shoots. They produce primary growth, extending the plant body as roots reach new water and minerals and shoots extend toward light.",
-    significance:
-      "The apical meristem represents the part of my reading life that is still actively growing. I am not pretending this project is the final, polished version of me as a reader. It is more like the place where the next version starts growing.",
-    evidence: [
-      {
-        id: "apical1",
-        title: "Future Reading Direction",
-        type: "Reflection",
-        text: "In the future, I want reading to remain an intellectual exercise instead of just something I do for logs, grades, or assignments.",
-        significance:
-          "I want my reading life to keep developing instead of ending with this course. \"Why limit yourself to just one dogma?\" - Oppenheimer, at least in the movie. I have no clue if he actually said that in real life, but the point still works."
-      }
-    ]
-  },
-
-  trunk: {
-    title: "Trunk",
-    biologicalDefinition:
-      "The stem supports the leaves and places them in favorable positions for exposure to light. It also conducts water and minerals upward through xylem and transports substances made in the leaves through phloem.",
-    significance:
-      "The trunk represents the stable center of my reading identity: I read to think. Even when I read fantasy, school books, or something I only started because I was forced to, I usually end up analyzing worldview, intelligence, morality, power, and how people interpret the world.",
-    evidence: [
-      {
-        id: "trunk1",
-        title: "Reading as Intellectual Exercise",
-        type: "Reflection",
-        text: "My proposal explains that reading this year became less about fulfilling logs and more about figuring out why I read in the first place.",
-        significance:
-          "This is the central axis of the project. Reading became more than just filling out a log. It became a way to understand everything around me a little bit better, including myself, which is annoying but probably useful."
-      }
-    ]
-  },
-
-  taproot: {
-    title: "Taproot",
-    biologicalDefinition:
-      "A taproot system forms from a strongly developed primary root and its branches. The primary root develops from the embryo's radicle and anchors the plant deeply.",
-    significance:
-      "The taproot represents my deepest motivation for reading: understanding people through the information they consume. Books do not just entertain people. They train what people notice, what they ignore, what they admire, and what they think is normal.",
-    evidence: [
-      {
-        id: "taproot1",
-        title: "Central Motivation",
-        type: "Reflection",
-        text: "People are products of the information they consume, and a lot of that information comes from books.",
-        significance:
-          "This is the deepest root of the project because it explains why reading matters beyond school and, more importantly, why I read. I am interested in what information does to people."
-      }
-    ]
-  },
-
-  lateralRoots: {
-    title: "Lateral Roots",
-    biologicalDefinition:
-      "Lateral roots arise from inner tissues of roots. Together, roots anchor the plant and absorb water and minerals from the soil.",
-    significance:
-      "The lateral roots represent the smaller motivations that fed my reading life: school obligation, curiosity, escape, discipline, comfort, identity, sunk cost, and sometimes just someone else reading something near me.",
-    evidence: [
-      {
-        id: "lateralRoots1",
-        title: "Mixed Motivations",
-        type: "Reflection",
-        text: "Some books were read because I chose them. Some were assigned. Some were useful. Some were familiar. Some were expensive enough that I felt morally obligated to finish them.",
-        significance:
-          "These smaller reasons supported the larger reading identity even when they conflicted with each other. My reading life was not one clean motivation. It was a mess of real curiosity, pressure, habit, and convenience."
-      }
-    ]
-  }
-};
-
-export const branches = {
-  study: {
-    title: "Reading as Study",
-    biologicalDefinition:
-      "Branches are part of the shoot system, which includes stems and leaves. Stems raise leaves toward light and connect them to the plant's vascular system.",
-    significance:
-      "This branch represents reading as learning, analysis, and intellectual development. These books shaped how I understand biology, chemistry, physics, medicine, history, psychology, and the world beyond English class.",
-    clusters: ["scienceTextbooks", "readingToThink", "medicineNarrative"]
-  },
-
-  discipline: {
-    title: "Reading as Discipline",
-    biologicalDefinition:
-      "Primary growth extends the plant body, while secondary growth thickens stems and roots over time. Growth is gradual, layered, and repeated.",
-    significance:
-      "This branch represents reading as habit, requirement, and effort. Not every book started because I was spiritually moved by literature. Some were assigned, logged, expensive, spoiled, or interrupted, and that still counts as part of my reading life.",
-    clusters: ["forcedReading", "moneyAndMotivation", "unfinishedReading"]
-  },
-
-  escape: {
-    title: "Reading as Escape",
-    biologicalDefinition:
-      "Leaves are specialized photosynthetic organs. Stems position leaves so they can capture light, while vascular tissues connect the leaves to the rest of the plant.",
-    significance:
-      "This branch represents reading as entering another world. Fantasy and long series gave me distance from ordinary pressure, but escape was not the opposite of thinking. Sometimes getting away from real life made it easier to analyze it.",
-    clusters: ["fantasyWorlds", "seriesAndRereads", "optionalReading"]
-  },
-
-  community: {
-    title: "Reading as Community",
-    biologicalDefinition:
-      "Roots, stems, and leaves are interconnected by a vascular system that transports water and food throughout the plant body.",
-    significance:
-      "This branch represents reading as connection: connection to childhood, my brother, classmates, school, shared fandoms, and inherited identity. Reading looks private, but it kept turning out to be social.",
-    clusters: ["childhoodReading", "booksThroughFamily", "sharedReadingCultures", "identityAndHistory"]
-  },
-
-  individuality: {
-    title: "Reading as Individuality",
-    biologicalDefinition:
-      "The shoot apical meristem repeatedly produces leaf primordia and bud primordia; bud primordia develop into lateral shoots.",
-    significance:
-      "This branch represents the most personal part of my reading life: the books that reveal my actual taste. I am drawn to darker, sharper, more psychologically realistic narratives that do not pretend people are perfectly righteous.",
-    clusters: ["brokenEmpire", "darkNarrators", "transformationNarratives", "currentGrowth"]
-  }
-};
-
-export const leafClusters = {
-  scienceTextbooks: {
-    title: "Science and Study Textbooks",
+  q4RavenAndBotany: {
+    title: "Raven and the Biology of the Tree",
     branch: "study",
     significance:
-      "This cluster shows reading as technical training. These books were not mainly emotional reading, but they changed how I think. They taught me to look for mechanisms, systems, causes, and structures instead of just accepting surface explanations.",
+      "Q4 made the project loop back into study reading. Raven Biology of Plants started as Science Olympiad preparation, but it eventually became the actual framework for the final project.",
     leaves: [
       {
-        id: "scienceTextbooks1",
-        title: "Campbell Biology",
-        type: "Study book",
-        text: "Campbell Biology was part of my biology background and helped build the broad conceptual base I use when thinking about life science.",
-        significance:
-          "This shows reading as study because it trained me to understand living systems through mechanisms, not just memorized facts."
-      },
-      {
-        id: "scienceTextbooks2",
+        id: "q4RavenBook",
         title: "Raven Biology of Plants",
         type: "Study book",
-        text: "Raven Biology of Plants became directly connected to this project because the tree metaphor comes from real plant anatomy and development.",
+        quarter: "q4",
+        text:
+          "I read Raven Biology of Plants while studying Botany for Science Olympiad Nationals.",
         significance:
-          "This matters because my project does not use a tree only as decoration. The biology gives structure to the reflection, which is a lot better than randomly putting leaves on a poster and calling it symbolism."
+          "Raven belongs here because it was not symbolic at first. It was just difficult academic reading, and then it accidentally became the vocabulary for understanding my reading life."
       },
       {
-        id: "scienceTextbooks3",
-        title: "Anatomy and Physiology Texts",
-        type: "Study book",
-        text: "Patton & Thibodeau Anatomy and Physiology and Vander's Human Physiology helped me read the body as a system of connected structures and functions.",
+        id: "q4BotanyNationals",
+        title: "12th Nationally in Botany",
+        type: "Science Olympiad",
+        quarter: "q4",
+        text:
+          "My Botany studying helped me place 12th nationally at Science Olympiad Nationals.",
         significance:
-          "These books connect to my interest in medicine and show reading as preparation for the kind of thinker I want to become."
+          "The result gives the biology side of the project some credibility. The tree is not a random metaphor I pulled out because it looked nice; it comes from a subject I actually studied seriously."
       },
       {
-        id: "scienceTextbooks4",
-        title: "Genetics and Molecular Biology",
-        type: "Study book",
-        text: "Brooker Genetics and Alberts Molecular Biology helped me think about biology at the level of genes, cells, and molecular systems.",
+        id: "q4ApicalMeristemStructure",
+        title: "Apical Meristem as Future Growth",
+        type: "Final project design",
+        quarter: "q4",
+        text:
+          "I used the apical meristem to represent the growing tip of my reading life.",
         significance:
-          "This shows how reading built the scientific framework I use outside English class. These books were not relaxing, but they were useful, which is sometimes more important."
+          "The apical meristem works because it is not a conclusion. It is the part of the plant that keeps producing new growth, which fits a reading identity that is still changing instead of becoming fixed for the sake of a final project."
       },
       {
-        id: "scienceTextbooks5",
-        title: "Chemistry and Physics Texts",
-        type: "Study book",
-        text: "Klein Organic Chemistry, Maitland Jones Organic Chemistry, Zumdahl Chemistry, Organic Chemistry for Dummies, and Walker Physics expanded my reading into chemistry and physics.",
+        id: "q4TaprootStructure",
+        title: "Taproot as Central Motivation",
+        type: "Final project design",
+        quarter: "q4",
+        text:
+          "I used the taproot to represent my central motivation: understanding people through the information they consume.",
         significance:
-          "This matters because my reading life includes textbooks that help me build models of the world, not only novels that tell stories."
+          "The taproot gives the project an anchor. Without it, the tree would just be a collection of books and assignments. The root explains why any of the leaves matter."
       },
       {
-        id: "scienceTextbooks6",
-        title: "The Unfinished Nation",
-        type: "Study book",
-        text: "The Unfinished Nation was part of my APUSH reading and helped connect my reading life to history.",
+        id: "q4BranchesAndLeaves",
+        title: "Branches and Leaves as Reading Functions",
+        type: "Final project design",
+        quarter: "q4",
+        text:
+          "The branches organize the major functions of my reading life, while each leaf represents a specific book, reflection, article, or project.",
         significance:
-          "This shows that study reading was not limited to science, even though science is the strongest part of my academic identity."
+          "This design keeps the tree thematic instead of chronological. The quarters appear through leaf color, but the branch structure stays based on meaning."
       }
     ]
   },
 
-  readingToThink: {
-    title: "Reading to Think Better",
-    branch: "study",
-    significance:
-      "This cluster represents books I read because I wanted to understand reasoning, prediction, psychology, and how people make decisions. Basically, books that make my brain slightly more dangerous.",
-    leaves: [
-      {
-        id: "readingToThink1",
-        title: "Causal Models",
-        type: "Book",
-        text: "I bought Causal Models on a trip to Brown University because it was written by a professor there and connected to my growing interest in psychology and decision-making.",
-        significance:
-          "This book shows reading as intellectual self-construction. Part of my motivation was that I did not want a forty-dollar book to go to waste, but it also became part of my interest in how people reason, predict, and make choices."
-      }
-    ]
-  },
-
-  medicineNarrative: {
-    title: "Medicine, Narrative, and Identity",
-    branch: "study",
-    significance:
-      "This cluster shows how assigned reading became personally meaningful because it connected to medicine, writing, and the life I imagine for myself.",
-    leaves: [
-      {
-        id: "medicineNarrative1",
-        title: "When Breath Becomes Air",
-        type: "Assigned book",
-        text: "When Breath Becomes Air was assigned, but it mattered to me because Paul Kalanithi was a neurosurgeon and I also have an interest in medicine and neuroscience.",
-        significance:
-          "The book taught me about medicine and mortality, but it also taught me how a scientific life can become an emotionally powerful narrative."
-      },
-      {
-        id: "medicineNarrative2",
-        title: "Narrative Strategy",
-        type: "Reflection",
-        text: "After reading Kalanithi's writing, I kept using some of his narrative strategies in my practice college essays.",
-        significance:
-          "This matters because the book changed not only what I thought about medicine, but also how I thought about writing. It made me realize that structure can make an experience feel meaningful instead of just sad."
-      }
-    ]
-  },
-
-  forcedReading: {
-    title: "Forced Reading That Became Real",
+  q4ReadingConditions: {
+    title: "Reading Conditions",
     branch: "discipline",
     significance:
-      "This cluster shows that required or pressured reading can still become authentic interest. Annoyingly, sometimes school is right.",
+      "Q4 continued the same discipline pattern from earlier quarters: when reading fails, the question is not always whether I care enough. Sometimes the environment is just badly designed.",
     leaves: [
       {
-        id: "forcedReading1",
-        title: "Six of Crows",
-        type: "Forced reading",
-        text: "Six of Crows began as forced reading. I recognized it in the school library and ended up liking it more than I expected.",
+        id: "q4GoalQuietPlace",
+        title: "Q4 Goal: Read in a Quieter Place",
+        type: "Reading goal",
+        quarter: "q4",
+        text:
+          "I set a goal to read in a more quiet place because some of my reading was not focused on the book but on events happening beside me.",
         significance:
-          "This showed me that school pressure and real interest do not have to be mutually exclusive. It was the first time a required book became a book I actually cared about."
+          "By Q4, I was no longer satisfied with reading that technically counted but mentally did not. A timer can say I read, but if half my attention is on the dining room, the reading is basically fake with paperwork."
       },
       {
-        id: "forcedReading2",
-        title: "Six of Crows: Incomplete",
-        type: "Reflection",
-        text: "I did not read the next book partly because ERIC >:( spoiled parts of it, which made me less motivated even though I still want to read it.",
+        id: "q4DiningRoomDistractions",
+        title: "Dining Room Distractions",
+        type: "Reading goal rationale",
+        quarter: "q4",
+        text:
+          "Because my parents do not let me bring devices to my room, I usually work in the dining room, where there are more distractions.",
         significance:
-          "It showed me that my reading motivation, especially earlier in the year, was pretty fragile. Other people significantly affected what I read and whether I kept reading it."
+          "The problem was not a dramatic moral failure. It was architecture. The space itself made distraction easier, which meant the reading system needed another redesign."
+      },
+      {
+        id: "q4StopwatchDistraction",
+        title: "Stopwatch Distraction Test",
+        type: "Action step",
+        quarter: "q4",
+        text:
+          "One action step was to use a stopwatch to figure out how long it takes for me to get distracted.",
+        significance:
+          "This is probably the most me solution possible: instead of just saying I get distracted, measure how fast the failure happens. It turns attention into data, which is useful and mildly embarrassing."
+      },
+      {
+        id: "q4MidnightReading",
+        title: "Reading Before or During Midnight",
+        type: "Action step",
+        quarter: "q4",
+        text:
+          "I planned to bring books upstairs and read before or during midnight.",
+        significance:
+          "The plan is not ideal, but neither is my schedule. It shows that by Q4, I was still trying to make reading fit into a real life instead of pretending I had a peaceful literary routine."
       }
     ]
   },
 
-  moneyAndMotivation: {
-    title: "Money and Motivation",
+  q4UnfinishedSeriesFollowThrough: {
+    title: "Unfinished Series and Follow-Through",
     branch: "discipline",
     significance:
-      "This cluster shows that reading motivation is not always noble. Sometimes discipline comes from not wanting effort, money, or opportunity to go to waste.",
+      "Q4 brought back a problem from Q1: I liked Six of Crows, but liking a book is not the same as actually continuing the series before time, spoilers, and school requirements kill the momentum.",
     leaves: [
       {
-        id: "moneyAndMotivation1",
-        title: "Causal Models",
-        type: "Book",
-        text: "Causal Models was a relatively small book that cost around forty dollars, so part of my motivation was that I did not want the money to be wasted.",
+        id: "q4GoalFinishCrookedKingdom",
+        title: "Q4 Goal: Finish Crooked Kingdom",
+        type: "Reading goal",
+        quarter: "q4",
+        text:
+          "I set a goal to finish Crooked Kingdom because I started the series in Q1 when I read Six of Crows.",
         significance:
-          "This is honest evidence of discipline. Sometimes I read because of curiosity, and sometimes I read because I already committed resources to the book and refuse to let the sunk cost win."
-      }
-    ]
-  },
-
-  unfinishedReading: {
-    title: "Books Interrupted or Left Unfinished",
-    branch: "discipline",
-    significance:
-      "This cluster shows that unfinished reading still matters. A book can reveal something about identity, history, or circumstance even if I do not finish it.",
-    leaves: [
-      {
-        id: "unfinishedReading1",
-        title: "The Hidden History of Burma",
-        type: "Unfinished book",
-        text: "The Hidden History of Burma mattered because I am Burmese and did not grow up with a strong knowledge of Burmese history, but difficult circumstances made me drop the book.",
-        significance:
-          "This shows that reading growth is not always clean or complete. Sometimes an unfinished book still reveals a gap I want to understand, even if I was not ready to finish it at the time."
-      }
-    ]
-  },
-
-  fantasyWorlds: {
-    title: "Fantasy Worlds",
-    branch: "escape",
-    significance:
-      "This cluster shows how fantasy lets me enter worlds outside ordinary school pressure while still thinking about power, identity, and conflict.",
-    leaves: [
-      {
-        id: "fantasyWorlds1",
-        title: "Wings of Fire",
-        type: "Book",
-        text: "Wings of Fire connects to childhood reading and the kind of fantasy world I entered when I was younger.",
-        significance:
-          "This matters because childhood fantasy did not disappear from my reading identity. It became one root of how I understand reading as escape."
+          "Crooked Kingdom became a follow-through test. I had already proven that I liked the world; the problem was whether I could return to it before it became another abandoned intention."
       },
       {
-        id: "fantasyWorlds2",
-        title: "Keeper of the Lost Cities",
-        type: "Book",
-        text: "Keeper of the Lost Cities connected to childhood, fantasy, and the feeling of returning to a long-running fictional world.",
+        id: "q4BeforeSchoolLibraryAccessEnds",
+        title: "Before Losing Library Access",
+        type: "Reading goal rationale",
+        quarter: "q4",
+        text:
+          "I wanted to finish Crooked Kingdom before I lost access to the school library and before I forgot what happened in Six of Crows.",
         significance:
-          "This shows reading as escape because the series created a world that people could keep returning to over time, even when the release schedule made it hard to remember what was happening."
-      }
-    ]
-  },
-
-  seriesAndRereads: {
-    title: "Series and Rereads",
-    branch: "escape",
-    significance:
-      "This cluster represents long-form reading experiences where returning to a world matters as much as the plot itself.",
-    leaves: [
-      {
-        id: "seriesAndRereads1",
-        title: "The Broken Empire Series",
-        type: "Series",
-        text: "The Broken Empire series gave me a world I could return to, even though it was darker and less comforting than most fantasy.",
-        significance:
-          "This shows that escape does not have to mean comfort. Sometimes I escape into books because they are intense, intelligent, and morally uncomfortable."
+          "The goal was practical, which makes it more honest. Sometimes reading is not about profound personal transformation; sometimes it is about finishing the sequel before the plot evaporates."
       },
       {
-        id: "seriesAndRereads2",
-        title: "Keeper of the Lost Cities Delay",
-        type: "Reflection",
-        text: "Shannon Messenger took so long to release the last book that I forgot parts of the plot.",
+        id: "q4DoNotLetMacbethReplaceIt",
+        title: "Do Not Let Macbeth Replace It",
+        type: "Action step",
+        quarter: "q4",
+        text:
+          "One action step was not to stop reading Crooked Kingdom just because Macbeth fulfilled my two-hour requirement.",
         significance:
-          "This shows the strange community and memory side of long series. They can become part of your life long enough that waiting itself becomes part of the reading experience."
+          "This was an important warning to myself because required reading can become a loophole. If Macbeth checked the box, Crooked Kingdom could disappear unless I deliberately protected independent reading."
+      },
+      {
+        id: "q4ReadAcrossManyDays",
+        title: "Split Reading Across Days",
+        type: "Action step",
+        quarter: "q4",
+        text:
+          "I wanted to split my reading across many days of the week instead of trying to finish everything in a few concentrated sessions.",
+        significance:
+          "This returns to the earlier pattern from Q1 and Q2. I had already learned that extreme bursts can work short-term but damage consistency later."
       }
     ]
   },
 
-  optionalReading: {
-    title: "Optional Reading",
+  q4OptionalAndRecommendedReading: {
+    title: "Optional and Recommended Reading",
     branch: "escape",
     significance:
-      "This cluster shows what I chose when reading became less required and more voluntary.",
+      "Q4 also kept open the possibility of reading beyond school requirements. The goal was not to finish a giant new canon; it was to get light exposure to books I might actually want to continue.",
     leaves: [
       {
-        id: "optionalReading1",
+        id: "q4RecommendedListGoal",
+        title: "Q4 Goal: Recommended List Exposure",
+        type: "Reading goal",
+        quarter: "q4",
+        text:
+          "I set a goal to have some exposure to books from my recommended list in my notes.",
+        significance:
+          "This goal is about controlled exploration. I wanted enough exposure to test new books without accidentally trapping myself in another long commitment before knowing whether it was worth it."
+      },
+      {
+        id: "q4CountMonteCristo",
         title: "The Count of Monte Cristo",
-        type: "Optional Q4 reading",
-        text: "I chose The Count of Monte Cristo because reading was optional in Quarter 4 and my physics teacher told me classics were worth reading.",
+        type: "Optional reading",
+        quarter: "q4",
+        text:
+          "I read some of The Count of Monte Cristo after my physics teacher told me classics are good reads.",
         significance:
-          "This matters because it shows what I chose when I had more freedom: a classic about betrayal, revenge, patience, and transformation. Apparently classics can be good when they are not being surgically removed from their context by a worksheet."
-      }
-    ]
-  },
-
-  childhoodReading: {
-    title: "Childhood Reading",
-    branch: "community",
-    significance:
-      "This cluster connects my present reading life to younger versions of myself.",
-    leaves: [
-      {
-        id: "childhoodReading1",
-        title: "Wings of Fire",
-        type: "Childhood book",
-        text: "Wings of Fire belongs here because it connects to childhood reading and an earlier version of my reading identity.",
-        significance:
-          "This matters because reading is not only about the books I choose now. It also includes books that shaped what reading felt like when I was younger."
+          "Apparently classics can be good when they are not being surgically removed from their context by a worksheet. The book worked for me because it became a transformation story, not just an old book people say is important."
       },
       {
-        id: "childhoodReading2",
-        title: "Keeper of the Lost Cities",
-        type: "Childhood book",
-        text: "Keeper of the Lost Cities connects to childhood and to the experience of growing up with a series over time.",
+        id: "q4PhysicsTeacherRecommendations",
+        title: "Physics Teacher Recommendations",
+        type: "Recommendation",
+        quarter: "q4",
+        text:
+          "I wanted to discuss the books with the person who recommended them to me, my physics teacher at Cardozo.",
         significance:
-          "This shows how a book can become part of memory, not just entertainment."
-      }
-    ]
-  },
-
-  booksThroughFamily: {
-    title: "Books Through Family",
-    branch: "community",
-    significance:
-      "This cluster shows that reading can spread through family, not just school or private choice.",
-    leaves: [
-      {
-        id: "booksThroughFamily1",
-        title: "Let the Sky Fall",
-        type: "Book",
-        text: "I read Let the Sky Fall because my brother was reading it.",
-        significance:
-          "This matters because the book entered my reading life through family. I did not choose it from some deep literary calling; it was just near me, and that was enough."
+          "The recommendation gave the reading a community route into my life. My personal taste is still under construction, so borrowing someone else's tested taste is sometimes a reasonable shortcut."
       },
       {
-        id: "booksThroughFamily2",
-        title: "Keeper of the Lost Cities",
-        type: "Book",
-        text: "My brother was also reading Keeper of the Lost Cities, which made the series part of a shared reading environment.",
+        id: "q4ShorterTextsFirst",
+        title: "Shorter Texts First",
+        type: "Action step",
+        quarter: "q4",
+        text:
+          "I planned to choose shorter texts or sections from my list first, then go to longer stories later.",
         significance:
-          "This shows reading as community because the book connected my reading life with someone close to me."
+          "This is a more realistic version of ambition. Instead of pretending I would suddenly become a classics machine, I lowered the activation energy."
       }
     ]
   },
 
-  sharedReadingCultures: {
-    title: "Shared Reading Cultures",
+  q4PerformanceCommunity: {
+    title: "Macbeth as Group Interpretation",
     branch: "community",
     significance:
-      "This cluster shows that some books matter because a lot of people read them, remember them, and talk about them.",
+      "Macbeth made required reading social in a different way. The text had to become a performance, meaning interpretation was no longer just something written in a paragraph.",
     leaves: [
       {
-        id: "sharedReadingCultures1",
-        title: "Keeper of the Lost Cities Community",
-        type: "Book community",
-        text: "I realized there was a real community around Keeper of the Lost Cities because so many people had read it.",
+        id: "q4MacbethGroupProject",
+        title: "Macbeth Performance Project",
+        type: "Group project",
+        quarter: "q4",
+        text:
+          "For Macbeth, my group had to act out a scene instead of only writing about it.",
         significance:
-          "This matters because reading was not only private. The series connected to a larger group of readers who shared the same world, the same wait, and probably the same confusion when the plot got too long to remember."
+          "The project made interpretation physical and communal. A scene is very different when meaning depends on timing, movement, tone, and whether your group can agree on what power looks like."
       },
       {
-        id: "sharedReadingCultures2",
-        title: "Six of Crows in School",
-        type: "School-library book",
-        text: "Six of Crows was a book I recognized in the school library, and it became connected to school and classmates.",
+        id: "q4MacbethAct41Group",
+        title: "Act 4 Scene 1",
+        type: "Group project",
+        quarter: "q4",
+        text:
+          "My group chose Act 4 Scene 1, where Macbeth returns to the witches for answers.",
         significance:
-          "This shows how a book can move through a school community, even when that community also affects the reading experience through spoilers."
-      }
-    ]
-  },
-
-  identityAndHistory: {
-    title: "Identity and Inherited History",
-    branch: "community",
-    significance:
-      "This cluster shows reading as a way to recover history and identity that family or school did not fully transmit.",
-    leaves: [
+          "The scene worked because it already has a built-in power struggle. Macbeth thinks he is seeking knowledge, but the witches control the terms of what he sees."
+      },
       {
-        id: "identityAndHistory1",
-        title: "The Hidden History of Burma",
-        type: "Identity-history book",
-        text: "I am Burmese, but because the Burmese education system separated students into STEM and humanities tracks, my mother did not learn much history, so neither did I.",
+        id: "q4ConversationAsFight",
+        title: "Conversation as Fight",
+        type: "Performance idea",
+        quarter: "q4",
+        text:
+          "My group planned choreography where the fight scene changes depending on who is winning the conversation.",
         significance:
-          "This matters because the book represented an attempt to understand a part of my identity that I did not automatically inherit. It also showed me that gaps in knowledge can be inherited just like knowledge can."
+          "That made the project more interesting because it turned rhetoric into movement. The argument did not just happen through words; it happened through who controlled the space."
       }
     ]
   },
 
-  brokenEmpire: {
-    title: "The Broken Empire Series",
+  q4DarkTransformationOnStage: {
+    title: "Dark Transformation on Stage",
     branch: "individuality",
     significance:
-      "This cluster shows the clearest part of my individual reading taste: darker, sharper, more intelligent, and less sanitized books.",
+      "Macbeth fits my reading taste because it is another dark transformation story. The difference is that this time, the corruption had to be staged instead of just analyzed.",
     leaves: [
       {
-        id: "brokenEmpire1",
-        title: "Prince of Thorns",
-        type: "Book",
-        text: "Prince of Thorns introduces Jorg as a young narrator who is not innocent, simple, or passive.",
+        id: "q4MacbethBook",
+        title: "Macbeth",
+        type: "Required reading",
+        quarter: "q4",
+        text:
+          "In Q4, we read Macbeth, which I liked because it fit my interest in dark protagonists, ambition, power, and moral collapse.",
         significance:
-          "This matters because it showed me that I am drawn to narrators who are intelligent, morally uncomfortable, and difficult to reduce to clean categories."
+          "Macbeth is required reading, but it overlaps with my actual taste more than most required reading does. The play is basically a controlled collapse of a person under ambition, prophecy, and power."
       },
       {
-        id: "brokenEmpire2",
-        title: "King of Thorns",
-        type: "Book",
-        text: "King of Thorns continues the series' focus on memory, ambition, survival, and power.",
-        significance:
-          "This showed that my interest was not just in the plot. I was returning to the narrator's worldview."
-      },
-      {
-        id: "brokenEmpire3",
-        title: "Emperor of Thorns",
-        type: "Book",
-        text: "Emperor of Thorns was the book I chose myself and loved most from the series because it felt filled with more realistic life lessons.",
-        significance:
-          "This matters because it helped me understand why I prefer books that do not pretend people are morally simple or perfectly righteous."
-      }
-    ]
-  },
-
-  darkNarrators: {
-    title: "Dark Narrators and Realistic Worldviews",
-    branch: "individuality",
-    significance:
-      "This cluster represents my preference for narrators who think sharply but do not have clean or comforting moral perspectives.",
-    leaves: [
-      {
-        id: "darkNarrators1",
-        title: "Unrealistic Righteous Heroes",
+        id: "q4NotDarkNarrator",
+        title: "Dark Protagonist, Not Dark Narrator",
         type: "Reflection",
-        text: "Many books rely on a righteous hero who always chooses the morally clean path, but that kind of character often feels unrealistic to me.",
+        quarter: "q4",
+        text:
+          "Macbeth is not technically a dark narrator because the play does not have a first-person narrator, but he still fits the darker character pattern I like.",
         significance:
-          "This matters because it reveals one of my strongest reading preferences: I am more interested in characters who feel psychologically possible than characters who are morally perfect. Biology is more complicated than saying altruism does not exist, but my instinct is still that perfectly selfless heroes usually feel fake."
+          "The correction matters because the real pattern is not narration; it is transformation. I am drawn to characters who become worse in ways that still feel psychologically possible."
       },
       {
-        id: "darkNarrators2",
-        title: "Not a Righteous Hero",
-        type: "Reflection",
-        text: "I do not see myself as a perfectly righteous hero either, which may be part of why darker narrators feel more believable to me.",
+        id: "q4AnakinParallel",
+        title: "Anakin Turning to the Dark Side",
+        type: "Performance project",
+        quarter: "q4",
+        text:
+          "My group planned Act 4 Scene 1 as Anakin turning to the dark side, with the witches as Sith Lords.",
         significance:
-          "This connects reading to self-understanding because my taste in narrators reflects how I see people and myself. I am not saying I am a supervillain. I am saying spotless heroes are usually less convincing."
-      }
-    ]
-  },
-
-  transformationNarratives: {
-    title: "Transformation and Loss of Naivety",
-    branch: "individuality",
-    significance:
-      "This cluster shows my interest in characters who change from naive or open into darker, more suspicious versions of themselves.",
-    leaves: [
+          "That choice translated Shakespeare into a symbolic system I actually understand. The witches become corrupting forces, and Macbeth becomes someone being pulled deeper into power."
+      },
       {
-        id: "transformationNarratives1",
-        title: "The Count of Monte Cristo",
-        type: "Optional Q4 reading",
-        text: "I enjoyed The Count of Monte Cristo partly because Edmond Dantes begins as naive and good but becomes darker after betrayal.",
+        id: "q4WitchesAsSithLords",
+        title: "Witches as Sith Lords",
+        type: "Performance project",
+        quarter: "q4",
+        text:
+          "The witches were framed as Sith Lords who influence Macbeth's turn toward darkness.",
         significance:
-          "This mattered to me because I connected to the idea of losing some earlier openness and becoming more guarded over time. I used to be more extroverted and probably nicer, and I do not think that version of me completely survived."
+          "The comparison works because the witches do not simply tell Macbeth what to do. They create a vision of power that he chooses to follow, which is more interesting than simple manipulation."
+      },
+      {
+        id: "q4PowerInTheConversation",
+        title: "Who Is Winning the Conversation?",
+        type: "Performance project",
+        quarter: "q4",
+        text:
+          "The fight choreography was supposed to depend on who was winning the conversation.",
+        significance:
+          "That idea turned interpretation into staging. If the witches are winning, their movement should dominate. If Macbeth is trying to take control, the choreography should show that too."
       }
     ]
   },
 
-  currentGrowth: {
+  q4CurrentGrowth: {
     title: "Current Growth",
     branch: "individuality",
     significance:
-      "This cluster shows what I am reading now and where my reading life is still growing.",
+      "Q4 is not packed with new books, but it does show where my reading identity is currently pointed: toward unfinished series, harder classics, science-based models, and books that connect different fields.",
     leaves: [
       {
-        id: "currentGrowth1",
+        id: "q4ReadingTreeItself",
+        title: "This Reading Tree",
+        type: "Final project",
+        quarter: "q4",
+        text:
+          "The tree itself is the current version of my reading identity.",
+        significance:
+          "The project is not just a display of what I read. It is evidence that reading became something I could organize, model, question, and turn back on itself."
+      },
+      {
+        id: "q4ReadingLifeAsObject",
+        title: "My Reading Life Became the Text",
+        type: "Final project reflection",
+        quarter: "q4",
+        text:
+          "By the end of the year, I was not only reading books; I was reading the pattern of how I read.",
+        significance:
+          "That is the real Q4 shift. The object of analysis became my own habits, preferences, failures, and repeated choices."
+      },
+      {
+        id: "q4DancingWuLiMasters",
         title: "The Dancing Wu Li Masters",
         type: "Currently reading",
-        text: "The Dancing Wu Li Masters was recommended by an Organic Chemistry professor at Northwestern because it makes quantum physics more accessible to the general public.",
+        quarter: "q4",
+        text:
+          "The Dancing Wu Li Masters was recommended by an Organic Chemistry professor at Northwestern because it makes quantum physics more accessible to the general public.",
         significance:
-          "This matters because it shows my reading moving toward interdisciplinary thinking: physics, chemistry, perspective, and the attempt to understand abstract ideas in a more intuitive way. Apparently understanding an electron's perspective might help with organic chemistry, which is either profound or mildly insane."
+          "This book points toward the next version of my reading life: interdisciplinary, slightly weird, and still trying to turn abstract ideas into something I can actually picture."
+      },
+      {
+        id: "q4ElectronPerspective",
+        title: "The Electron's Perspective",
+        type: "Reflection",
+        quarter: "q4",
+        text:
+          "The professor said that if I understand the perspective of an electron, I can more easily understand organic chemistry.",
+        significance:
+          "That is either profound or mildly insane, but it fits my reading life. I keep using books to borrow perspectives I would not naturally have."
       }
     ]
-  }
-};
+  },

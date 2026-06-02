@@ -4,7 +4,7 @@ export const treeSections = {
     biologicalDefinition:
       "Apical meristems are growth regions at the tips of roots and shoots. They produce primary growth, extending the plant body as roots reach new water and minerals and shoots extend toward light.",
     significance:
-      "The apical meristem is the part of my reading life that's still growing. I'm not trying to act like this project is the finished version of me as a reader, because it pretty obviously isn't. It's more like the spot where the next part starts.",
+      "The apical meristem is the part of my reading life that's still growing, which is a more honest ending than pretending I had some clean final transformation. I did not evolve from "bad reader" to "Shakespeare enjoyer" in one school year. It's more like this is the spot where the next weird branch starts.",
     evidence: [
       {
         id: "apicalFutureDirection",
@@ -12,7 +12,7 @@ export const treeSections = {
         type: "Reflection",
         quarter: "q4",
         text:
-          "Going forward I want reading to actually mean something to me again, not just be a thing I do for logs and grades.",
+          "Going forward I want reading to keep meaning something to me, not collapse back into a thing I only do because a log sheet is staring at me.",
         significance:
           "I don't want my reading life to just stop the second this class ends. The whole point of the project isn't to say I became a great reader. It's that I'm still figuring it out, and I want to keep figuring it out."
       },
@@ -24,7 +24,7 @@ export const treeSections = {
         text:
           "The final project itself ended up being part of my reading life because I used a tree (the biology kind) to organize the patterns and weird tensions in how I read.",
         significance:
-          "By Q4 I wasn't just listing books anymore. I was using something I'd studied a lot (plant biology) to explain another thing I do a lot (read), which is honestly kind of fun and also feels like the most accurate part of the project."
+          "By Q4 I wasn't just listing books anymore. I was using something I had actually studied hard (plant biology) to explain another thing I do a lot (read), which is either very efficient interdisciplinary thinking or just me refusing to leave biology alone."
       }
     ]
   },
@@ -33,7 +33,7 @@ export const treeSections = {
     biologicalDefinition:
       "The stem supports the leaves and places them in favorable positions for exposure to light. It also conducts water and minerals upward through xylem and transports substances made in the leaves through phloem.",
     significance:
-      "The trunk is the part that hasn't really changed: I read to think. Fantasy, school stuff, books I only picked up because someone told me to, doesn't matter. I'm usually thinking about how power works, or how a character sees the world, or why I trust one narrator more than another. That's just kind of always there.",
+      "The trunk is the part that hasn't really changed: I read to think. Fantasy, school stuff, books I only picked up because someone told me to, doesn't matter. I usually end up thinking about power, narration, morality, systems, or why someone sees the world in such a weird specific way. That habit is basically the load-bearing wall of the whole project.",
     evidence: [
       {
         id: "trunkProposal",
@@ -43,7 +43,7 @@ export const treeSections = {
         text:
           "In my proposal I wrote that reading this year stopped being about hitting goals and started being about why I read at all.",
         significance:
-          "This is the middle of the whole thing. Reading turned into a way for me to understand stuff around me, including myself, which I didn't really sign up for but here we are."
+          "This is the middle of the whole thing. Reading turned into a way for me to understand stuff around me, including myself, which sounds like something a teacher would want me to say, except unfortunately it actually happened."
       },
       {
         id: "trunkYearArc",
@@ -53,7 +53,7 @@ export const treeSections = {
         text:
           "Q1 was me measuring everything. Q2 made me actually struggle. Q3 made me read across stuff (history, news, fiction). Q4 turned all of it into a model.",
         significance:
-          "Without the trunk it would just be a pile of leaves. Which is fine for the tree if it's fall, but bad for a final project."
+          "Without the trunk it would just be a pile of leaves, which is fine for the tree if it's fall but not great if I'm trying to prove this is a coherent final project."
       }
     ]
   },
@@ -62,7 +62,7 @@ export const treeSections = {
     biologicalDefinition:
       "A taproot system forms from a strongly developed primary root and its branches. The primary root develops from the embryo's radicle and anchors the plant deeply.",
     significance:
-      "The taproot is the real reason I read: I want to understand people through what they read. Books don't just entertain you. They shape what you pay attention to, what you ignore, what you think is normal, what you find impressive. That's actually a big deal once you start noticing it.",
+      "The taproot is the real reason I read: I want to understand people through the information they consume. Books don't just entertain you. They train your attention, your standards, your assumptions, and sometimes your excuses. Once I started noticing that, reading became less like a hobby and more like evidence.",
     evidence: [
       {
         id: "taprootCentralMotivation",
@@ -70,7 +70,7 @@ export const treeSections = {
         type: "Reflection",
         quarter: "q4",
         text:
-          "People are kind of made out of the stuff they read and watch and hear, and a lot of that comes from books.",
+          "People are kind of made out of the information they read, watch, hear, repeat, and slowly start mistaking for their own original thoughts.",
         significance:
           "This is the deepest part of the project for me. It's why reading matters past school, and also why I personally bother. I'm interested in what information does to people once it's in their head."
       },
@@ -92,7 +92,7 @@ export const treeSections = {
         text:
           "In Q3 I figured out that my reading is best when I'm using a few texts at once and letting them mess with each other.",
         significance:
-          "This belongs near the taproot because it changed why I read. One book gives depth, an article gives urgency, another text gives a frame, and together they kind of build the context I actually wanted in the first place."
+          "This belongs near the taproot because it changed why I read. One book gives depth, an article gives urgency, another text gives a frame, and together they build the context I was apparently missing the whole time."
       }
     ]
   },
@@ -101,7 +101,7 @@ export const treeSections = {
     biologicalDefinition:
       "Lateral roots arise from inner tissues of roots. Together, roots anchor the plant and absorb water and minerals from the soil.",
     significance:
-      "The lateral roots are all the smaller reasons I read: because school says so, because I'm curious, because I want to disappear for a while, because I already started, because I'm comfortable, because it's part of who I am, because I spent money on the book and now I'm trapped, and sometimes because someone next to me was reading and I felt left out.",
+      "The lateral roots are all the smaller and less noble reasons I read: because school says so, because I'm curious, because I want to disappear for a while, because I already started, because it's part of who I am, because I spent money on the book and now I'm trapped, and sometimes because someone next to me was reading and I felt left out.",
     evidence: [
       {
         id: "lateralMixedMotivations",
@@ -136,13 +136,14 @@ export const treeSections = {
     ]
   }
 };
+// The five main functions of reading. Not chronological, because that would be too neat and less true.
 export const branches = {
   study: {
     title: "Reading as Study",
     biologicalDefinition:
       "Branches are part of the shoot system, which includes stems and leaves. Stems raise leaves toward light and connect them to the plant's vascular system.",
     significance:
-      "This branch is reading as learning. The gray dominant Study section from my original triangle lives here, but Q2 messed with it by showing nonfiction can be more than textbooks, Q3 pushed it into historical and political layering, and Q4 used plant biology to literally build the project.",
+      "This branch is reading as learning, but not in the shiny inspirational sense. The gray Study section from my original triangle lives here, but Q2 proved nonfiction is not just textbook cosplay, Q3 pushed reading into history and politics, and Q4 somehow let plant biology become the scaffolding for the whole website.",
     clusters: [
       "grayStudyMajority",
       "q2NonfictionAsStudy",
@@ -157,7 +158,7 @@ export const branches = {
     biologicalDefinition:
       "Primary growth extends the plant body, while secondary growth thickens stems and roots over time. Growth is gradual, layered, and repeated.",
     significance:
-      "This branch is reading as habit, pressure, and figuring out what works. My discipline wasn't a nice clean line going up. It was more like, the system breaks, I notice it broke, I redesign it, repeat.",
+      "This branch is reading as habit, pressure, and repeated system failure. My discipline was not a clean upward graph. It was more like: the system breaks, I notice it broke, I redesign it, it breaks in a slightly different way, repeat.",
     clusters: [
       "readingAsSystem",
       "q2HarderTexts",
@@ -173,7 +174,7 @@ export const branches = {
     biologicalDefinition:
       "Leaves are specialized photosynthetic organs. Stems position leaves so they can capture light, while vascular tissues connect the leaves to the rest of the plant.",
     significance:
-      "This branch is reading as getting out of here for a while. Fantasy and long series gave me distance from the rest of my life, but it wasn't ever really turning my brain off. Most of the worlds I kept going back to were good because they were dark or strange enough to be worth thinking about.",
+      "This branch is reading as getting out of here for a while. Fantasy and long series gave me distance from the rest of my life, but it was never really brain-off escape. The worlds I kept returning to were good because they were dark, strategic, or strange enough that my brain still had something to chew on.",
     clusters: [
       "sixOfCrowsMomentum",
       "q4OptionalAndRecommendedReading"
@@ -184,7 +185,7 @@ export const branches = {
     biologicalDefinition:
       "Roots, stems, and leaves are interconnected by a vascular system that transports water and food throughout the plant body.",
     significance:
-      "This branch is reading as the social thing it kind of secretly is: childhood books, my brother, my friends, things teachers told me about, fandoms, my family's country, group projects. Reading looks like a solo activity but most of the books I've ended up loving showed up because of someone else.",
+      "This branch is reading as the social thing it pretends not to be: childhood books, my brother, my friends, teacher recommendations, fandoms, my family's country, group projects. Reading looks like a solo activity, but a suspicious number of the books I ended up caring about got smuggled in by other people.",
     clusters: [
       "communityBeforeChoice",
       "q2BookClubCommunity",
@@ -198,7 +199,7 @@ export const branches = {
     biologicalDefinition:
       "The shoot apical meristem repeatedly produces leaf primordia and bud primordia; bud primordia develop into lateral shoots.",
     significance:
-      "This branch is the most me part of my reading: the stuff that actually shows what I like. I kept going back to dark transformations, morally weird characters, and stories where power doesn't make people noble, it just changes them.",
+      "This branch is the most me part of my reading: the stuff that actually exposes what I like when nobody is assigning it. I kept going back to dark transformations, morally weird characters, and stories where power does not make people noble. It just gives them better tools to become what they already were.",
     clusters: [
       "trialAndErrorOfTaste",
       "q3DarkPoliticalWorlds",
@@ -207,12 +208,13 @@ export const branches = {
     ]
   }
 };
+// Specific clusters and leaves. These are the actual evidence pieces that show up when clicked.
 export const leafClusters = {
   grayStudyMajority: {
     title: "The Gray Majority",
     branch: "study",
     significance:
-      "This cluster is from the start of the year, when I admitted Study was the biggest part of my reading life and also the least fun. It was useful, it took up most of my time, and it was not a great time, which is sort of the academic reading experience in one sad triangle.",
+      "This cluster is from the start of the year, when I admitted Study was the biggest part of my reading life and also the least fun, which is a terrible ratio but a very accurate one. It was useful, time-consuming, and basically the academic reading experience compressed into one sad gray triangle.",
     leaves: [
       {
         id: "q1StudyTriangle",
@@ -222,7 +224,7 @@ export const leafClusters = {
         text:
           "In my original triangle, Study was the biggest section, and I shaded it gray because most of my reading was academic, slow, and not really fun.",
         significance:
-          "The gray section was the first honest thing I said about myself as a reader. The biggest part of my reading life wasn't the part I liked the most. It was the part that took up the most time and made reading feel like a chore."
+          "The gray section was the first honest thing I said about myself as a reader. The biggest part of my reading life was not the part I liked most; it was the part that took the most time and made reading feel like training disguised as literacy."
       },
       {
         id: "q1QuantityNotQuality",
@@ -300,7 +302,7 @@ export const leafClusters = {
         text:
           "I wrote that small reading sessions actually added up, even though I'd rather sit down for a long uninterrupted block.",
         significance:
-          "First real lesson of the year. The reading session didn't have to be ideal to be useful, which is a bummer because I like ideal."
+          "First real lesson of the year: the reading session did not have to be ideal to be useful, which is annoying because I prefer ideal and almost never get it."
       },
       {
         id: "q1Reflection12",
@@ -310,7 +312,7 @@ export const leafClusters = {
         text:
           "I read 11.76 hours across Genetics, Anatomy and Physiology, AP Biology, and Six of Crows while prepping for Science Olympiad and Science Bowl tryouts.",
         significance:
-          "That week showed the difference between reading a lot and reading well. I was extremely productive, but pretty much all of that productivity was for school."
+          "That week showed the difference between reading a lot and reading well. I was productive in the same way a machine is productive, which is useful but not exactly alive."
       },
       {
         id: "q1Reflection13",
@@ -360,7 +362,7 @@ export const leafClusters = {
         text:
           "I called my weekly reflections a behavioral engineering experiment because I was constantly tweaking timing, conditions, and where I was reading.",
         significance:
-          "That phrase explains Q1 better than any book title would. Reading growth was less about inspiration and more about setting up conditions where the habit could survive me."
+          "That phrase explains Q1 better than any book title would. Reading growth was less about inspiration and more about engineering conditions where the habit could survive me, my schedule, and my talent for postponing things."
       }
     ]
   },
@@ -368,7 +370,7 @@ export const leafClusters = {
     title: "Six of Crows and Momentum",
     branch: "escape",
     significance:
-      "Six of Crows was the first book this year that punched through the gray Study section. It started with recs and the classroom library, but once I started reading it kept going on its own.",
+      "Six of Crows was the first book this year that punched through the gray Study section. It started with recommendations and the classroom library, but once it got going, it had enough momentum that I did not have to drag myself through it.",
     leaves: [
       {
         id: "q1SixOfCrowsBook",
@@ -378,7 +380,7 @@ export const leafClusters = {
         text:
           "Six of Crows is about a crew of criminals breaking a high-value prisoner out of the most secure prison in the world.",
         significance:
-          "It fit my taste right away: anti-heroes, multiple POVs, heists, plans within plans, morally questionable people being interesting. It didn't beat Empire of Thorns, but second place is still real."
+          "It fit my taste immediately: anti-heroes, multiple POVs, heists, plans inside other plans, and morally questionable people being way more interesting than righteous people. It did not beat Empire of Thorns, but second place is not charity."
       },
       {
         id: "q1SixOfCrowsOverdrive",
@@ -388,7 +390,7 @@ export const leafClusters = {
         text:
           "I had Six of Crows on hold on Overdrive for a really, really long time because I was 21st on two copies.",
         significance:
-          "The access shaped the book before I even opened it. I wanted it more because it kept making me wait, which is annoying but also extremely predictable behavior."
+          "The access problem shaped the book before I even opened it. I wanted it more because it made me wait, which is annoying evidence that I am not immune to basic scarcity psychology."
       },
       {
         id: "q1SixOfCrowsClassLibrary",
@@ -408,7 +410,7 @@ export const leafClusters = {
         text:
           "A bunch of people had already told me to read it, and I already knew it'd be my kind of book.",
         significance:
-          "It had social momentum before it had personal momentum. I didn't pick it up open-minded. I picked it up expecting to like it, which probably helped."
+          "It had social momentum before it had personal momentum. I did not pick it up with a blank mind. I picked it up already expecting it to work, which is probably cheating but still counts."
       },
       {
         id: "q1SixOfCrowsMultiCharacter",
@@ -428,7 +430,7 @@ export const leafClusters = {
         text:
           "Even during the worst tryout week, the part where Inej is about to climb the Incinerator kept pulling me back.",
         significance:
-          "Even when I was reading to just finish, the book could still hook me. So real interest can survive bad conditions, though it shouldn't have to."
+          "Even when I was reading just to finish, the book could still hook me. Real interest can survive bad conditions, though making it survive bad conditions is still a little rude."
       },
       {
         id: "q1SixOfCrowsSecondFavorite",
@@ -438,7 +440,7 @@ export const leafClusters = {
         text:
           "I wrote that Six of Crows wasn't going to beat Empire of Thorns but it was second on my list.",
         significance:
-          "This put Six of Crows on my actual taste ranking, which is when a book stops being a thing I liked and starts being a thing I'll measure other books against."
+          "This put Six of Crows on my actual taste ranking, which is when a book stops being just a book I liked and becomes a measuring stick I will unfairly use against future books."
       }
     ]
   },
@@ -446,7 +448,7 @@ export const leafClusters = {
     title: "Community Before Choice",
     branch: "community",
     significance:
-      "Even at the beginning of the year I was kind of admitting that reading was less private than I usually pretended. The books mostly came through people first and got personal later.",
+      "Even at the beginning of the year I was admitting that reading was less private than I usually pretend. Books mostly entered through other people first and became personal later, which is inconvenient for my independent-reader image.",
     leaves: [
       {
         id: "q1CommunityTriangle",
@@ -514,7 +516,7 @@ export const leafClusters = {
         text:
           "In my original triangle, Individuality was smaller than Study and less consistent than Community.",
         significance:
-          "That was a useful thing to admit. Picking for yourself sounds great until you keep picking wrong."
+          "That was a useful thing to admit. Picking for yourself sounds great until you keep picking wrong and have nobody else to blame."
       },
       {
         id: "q1PrinceException",
@@ -524,7 +526,7 @@ export const leafClusters = {
         text:
           "Prince of Thorns is on the Individuality side because it was one of the rare books I picked myself that actually became my favorite series.",
         significance:
-          "The Broken Empire was already showing my real taste at the start of the year. It wasn't something I dragged in later to make the tree look darker. It was already on the page."
+          "The Broken Empire was already showing my real taste at the start of the year. I did not add it later to make the tree look edgy. The evidence was already there."
       },
       {
         id: "q1DisappointingChoices",
@@ -562,7 +564,7 @@ export const leafClusters = {
     title: "Nonfiction Stopped Being Textbooks",
     branch: "study",
     significance:
-      "Q2 forced nonfiction to actually split into different categories. Before that I basically thought of all nonfiction as textbook-but-fancier, but Causal Models and When Breath Becomes Air were nothing like that. One was conceptual and painful. The other was narrative and also painful, but differently.",
+      "Q2 forced nonfiction to split into actual categories. Before that I basically treated nonfiction as textbook-but-fancier, but Causal Models and When Breath Becomes Air were nothing like that. One was conceptual and painful. The other was narrative and painful in a more medically elegant way.",
     leaves: [
       {
         id: "q2GoalNonfiction",
@@ -582,7 +584,7 @@ export const leafClusters = {
         text:
           "I picked Causal Models because I was getting into psychology, saw it at Brown, and wanted to read something harder.",
         significance:
-          "This was the clearest example of reading as straight-up intellectual discomfort. It was written for people who already had more background than me, so I wasn't really reading it. I was kind of wrestling with it."
+          "This was the clearest example of reading as intellectual discomfort. It was written for people with more background than me, so I was not gliding through the book. I was wrestling it in a very underqualified way."
       },
       {
         id: "q2CausalModelsFortyDollars",
@@ -602,7 +604,7 @@ export const leafClusters = {
         text:
           "I picked When Breath Becomes Air because it was a book club option, my friends picked it, and Paul Kalanithi was a neurosurgeon.",
         significance:
-          "It connected school reading to medicine, mortality, and how to actually write about that stuff. The choice was social. The reading was not."
+          "It connected school reading to medicine, mortality, and how to write about that without sounding like a hospital brochure. The choice was social. The effect was not."
       },
       {
         id: "q2FutureEvaporated",
@@ -660,7 +662,7 @@ export const leafClusters = {
         text:
           "I had to stop, go back, reread the same paragraphs a bunch of times, and try to say Sloman's points back in my own words before moving on.",
         significance:
-          "That changed how I deal with confusion. Instead of treating it like a sign that I'd failed, I started treating it like a checkpoint."
+          "That changed how I deal with confusion. Instead of treating it like proof I was failing, I started treating it like a checkpoint: annoying, but probably telling me where the actual learning is."
       },
       {
         id: "q2ContentualPain",
@@ -728,7 +730,7 @@ export const leafClusters = {
         text:
           "As clubs and other stuff piled up, I switched from tiny daily blocks to fewer longer sessions.",
         significance:
-          "The structure changed because my life changed. The point wasn't to protect the original strategy. The point was to keep reading alive once the original strategy stopped fitting my week."
+          "The structure changed because my life changed. The goal was not to worship the original strategy. The goal was to keep reading alive once the original strategy stopped fitting the week I actually had."
       },
       {
         id: "q2LimitOverreading",
@@ -756,7 +758,7 @@ export const leafClusters = {
     title: "Reading Like a Writer",
     branch: "study",
     significance:
-      "Q2 was when reading started leaking into my writing. When Breath Becomes Air didn't just give me ideas about medicine. It gave me techniques I actually ended up using in my own nonfiction narrative.",
+      "Q2 was when reading started leaking into my writing, which is probably the most useful kind of leak. When Breath Becomes Air did not just give me ideas about medicine. It gave me moves I actually used in my own nonfiction narrative.",
     leaves: [
       {
         id: "q2CadaverLab",
@@ -826,7 +828,7 @@ export const leafClusters = {
         text:
           "In my memo, I said Kalanithi showed me that emotions are usually felt through the body, not through someone telling you what they're feeling.",
         significance:
-          "Probably the biggest craft lesson of the year. Instead of saying someone felt powerless, I could show posture, movement, silence, who kept walking when someone else stopped."
+          "Probably the biggest craft lesson of the year. Instead of announcing that someone felt powerless, I could show posture, movement, silence, and who kept walking when someone else stopped."
       },
       {
         id: "q2StoriesChangeNotice",
@@ -836,7 +838,7 @@ export const leafClusters = {
         text:
           "I ended up writing that stories make change by changing what readers pay attention to, not by telling them what to think.",
         significance:
-          "It belongs in study because it's why craft matters. Technique isn't decoration. It's the thing that controls where the reader's attention goes."
+          "It belongs in Study because it explains why craft matters. Technique is not decoration. It is basically the steering wheel for the reader's attention."
       }
     ]
   },
@@ -902,7 +904,7 @@ export const leafClusters = {
         text:
           "My Q3 goal was to get into historical nonfiction and current events so reading could connect to actual life instead of staying locked inside the book.",
         significance:
-          "Sounds like an assignment requirement with extra steps, but it really did change how I read. I stopped treating articles like isolated updates and started reading them as evidence inside a longer argument."
+          "It sounds like an assignment requirement wearing a fake mustache, but it actually changed how I read. I stopped treating articles like isolated updates and started reading them as evidence inside a longer argument."
       },
       {
         id: "q3HiddenHistoryBook",
@@ -1230,7 +1232,7 @@ export const leafClusters = {
     title: "Dark Political Worlds",
     branch: "individuality",
     significance:
-      "Q3 was where political reading and my taste for dark worlds overlapped. 1984 was required, but it fit my interest in systems where power messes with reality, language, and people.",
+      "Q3 was where political reading and my taste for dark worlds overlapped. 1984 was required, but it fit my interest in systems where power does not just control people; it edits reality around them.",
     leaves: [
       {
         id: "q3Book1984",
@@ -1240,7 +1242,7 @@ export const leafClusters = {
         text:
           "I read 1984 in Q3 alongside The Hidden History of Burma and Myanmar current events.",
         significance:
-          "It was interesting, though honestly Winston felt kind of clueless to me. He knows the world is broken but seems stuck inside it in a way I had a hard time buying at first."
+          "It was interesting, though honestly Winston felt kind of clueless to me. He knows the world is broken but still moves through it like someone who has read the warning label and then drinks the poison anyway."
       },
       {
         id: "q3DoublethinkImpossible",
@@ -1288,7 +1290,7 @@ export const leafClusters = {
     title: "Raven and the Biology of the Tree",
     branch: "study",
     significance:
-      "Q4 looped the project back into study reading. Raven Biology of Plants started as Science Olympiad prep and ended up being the framework for the final project, which I didn't plan.",
+      "Q4 looped the project back into Study. Raven Biology of Plants started as Science Olympiad prep and ended up becoming the framework for the final project, which was not planned but was very convenient for my biology-brain propaganda.",
     leaves: [
       {
         id: "q4RavenBook",
@@ -1308,7 +1310,7 @@ export const leafClusters = {
         text:
           "Studying Botany got me 12th nationally at Science Olympiad Nationals.",
         significance:
-          "The result gives the biology side of the project some weight. The tree isn't a metaphor I grabbed because it looked nice. It's from a subject I actually studied hard."
+          "The result gives the biology side of the project some weight. The tree is not a metaphor I grabbed because it looked nice. It comes from a subject I actually studied hard enough to suffer over."
       },
       {
         id: "q4ApicalMeristemStructure",
@@ -1356,7 +1358,7 @@ export const leafClusters = {
         text:
           "I set a goal to read somewhere quieter, because a lot of my reading wasn't really focused on the book, it was focused on whatever was happening next to me.",
         significance:
-          "By Q4 I was sick of reading that counted on a timer but didn't actually do anything for me. A stopwatch can say I read for an hour. If half of my attention was on the dining room, it kind of didn't happen."
+          "By Q4 I was sick of reading that counted on a timer but did not actually do anything for me. A stopwatch can say I read for an hour, but if half my attention was on the dining room, the number is basically lying with confidence."
       },
       {
         id: "q4DiningRoomDistractions",
@@ -1394,7 +1396,7 @@ export const leafClusters = {
     title: "Unfinished Series and Follow-Through",
     branch: "discipline",
     significance:
-      "Q4 brought back a Q1 problem: I liked Six of Crows, but liking a book and actually finishing the sequel before time, spoilers, and school requirements kill the vibe are two different things.",
+      "Q4 brought back a Q1 problem: liking a book and actually finishing the sequel before time, spoilers, and school requirements kill the vibe are annoyingly different skills.",
     leaves: [
       {
         id: "q4GoalFinishCrookedKingdom",
@@ -1490,7 +1492,7 @@ export const leafClusters = {
     title: "Macbeth as Group Interpretation",
     branch: "community",
     significance:
-      "Macbeth made required reading social in a different way. The text had to become a performance, so interpretation wasn't just something you wrote down. It was something you had to physically do.",
+      "Macbeth made required reading social in a different way. The text had to become a performance, so interpretation was not just something I wrote in a paragraph and hoped sounded smart. It had to move.",
     leaves: [
       {
         id: "q4MacbethGroupProject",
@@ -1510,7 +1512,7 @@ export const leafClusters = {
         text:
           "My group picked Act 4 Scene 1, where Macbeth goes back to the witches looking for answers.",
         significance:
-          "Good scene because it has the power struggle built in. Macbeth thinks he's there for information, but the witches control exactly what he gets to see."
+          "Good scene because the power struggle is already built in. Macbeth thinks he is there for information, but the witches control the menu, the lighting, and basically the entire psychological restaurant."
       },
       {
         id: "q4ConversationAsFight",
@@ -1528,7 +1530,7 @@ export const leafClusters = {
     title: "Dark Transformation on Stage",
     branch: "individuality",
     significance:
-      "Macbeth fits my taste because it's another dark transformation story. Difference is that this time the corruption had to be acted out, not just analyzed.",
+      "Macbeth fits my taste because it is another dark transformation story. The difference is that this time the corruption had to be staged instead of just analyzed, which made the collapse harder to hide behind a paragraph.",
     leaves: [
       {
         id: "q4MacbethBook",
@@ -1626,9 +1628,8 @@ export const leafClusters = {
         text:
           "The professor told me that if I can understand the perspective of an electron, organic chemistry gets way easier.",
         significance:
-          "That's either deep or kind of unhinged, but either way it fits my reading life. I keep using books to borrow perspectives I wouldn't naturally have."
+          "That is either deep or kind of unhinged, but either way it fits my reading life. I keep using books to borrow perspectives I would not naturally have, which might be the least embarrassing explanation of the whole project."
       }
     ]
   }
 };
- 
